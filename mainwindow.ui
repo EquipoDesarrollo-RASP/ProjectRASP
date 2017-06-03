@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>803</width>
-    <height>417</height>
+    <height>504</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="pushButton_Estimacion">
     <property name="geometry">
      <rect>
-      <x>660</x>
-      <y>320</y>
+      <x>670</x>
+      <y>410</y>
       <width>121</width>
       <height>31</height>
      </rect>
@@ -30,10 +30,10 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>60</y>
+      <x>140</x>
+      <y>80</y>
       <width>651</width>
-      <height>241</height>
+      <height>321</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -53,10 +53,10 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>140</x>
       <y>20</y>
-      <width>441</width>
-      <height>31</height>
+      <width>421</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
@@ -67,9 +67,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
-      <width>101</width>
-      <height>351</height>
+      <y>0</y>
+      <width>129</width>
+      <height>441</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -101,6 +101,76 @@
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_PlanGeneral">
+       <property name="text">
+        <string>Plan General</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_Temporizacion">
+       <property name="text">
+        <string>Temporizacion</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_CicloVida">
+       <property name="text">
+        <string>Det. Ciclo de Vida</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_Riesgos">
+       <property name="text">
+        <string>Gestion de Riesgos</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_RTecnologia">
+       <property name="text">
+        <string>Riesgo deTecnologia</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_RPersonal">
+       <property name="text">
+        <string>Riesgo de Personal</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_ROrganizacional">
+       <property name="text">
+        <string>Riesgo Organizacional</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_RHerramientas">
+       <property name="text">
+        <string>Riesgo de Herramientas</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_RRequerimiento">
+       <property name="text">
+        <string>Riesgo de Requerimiento</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_REstimacion">
+       <property name="text">
+        <string>Riesgo de Estimacion</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
   </widget>
@@ -113,6 +183,40 @@
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuProyecto">
+    <property name="title">
+     <string>Proyecto</string>
+    </property>
+    <addaction name="actionNuevo_Proyecto"/>
+    <addaction name="actionAbrir_Proyecto"/>
+    <addaction name="actionGuardar_Proyecto"/>
+    <addaction name="actionCerrar_Proyecto"/>
+   </widget>
+   <widget class="QMenu" name="menuEditar">
+    <property name="title">
+     <string>Editar</string>
+    </property>
+    <addaction name="actionEditar_Factor"/>
+    <addaction name="actionBuscar"/>
+   </widget>
+   <widget class="QMenu" name="menuHistorial">
+    <property name="title">
+     <string>Historial</string>
+    </property>
+    <addaction name="actionHistorial_completo"/>
+    <addaction name="actionGenerar_Reporte"/>
+   </widget>
+   <widget class="QMenu" name="menuAyuda">
+    <property name="title">
+     <string>Ayuda</string>
+    </property>
+    <addaction name="actionManual_de_Usuario"/>
+    <addaction name="actionAcerca_de_RASP"/>
+   </widget>
+   <addaction name="menuProyecto"/>
+   <addaction name="menuEditar"/>
+   <addaction name="menuHistorial"/>
+   <addaction name="menuAyuda"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -123,6 +227,56 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionNuevo_Proyecto">
+   <property name="text">
+    <string>Nuevo Proyecto</string>
+   </property>
+  </action>
+  <action name="actionAbrir_Proyecto">
+   <property name="text">
+    <string>Abrir Proyecto</string>
+   </property>
+  </action>
+  <action name="actionGuardar_Proyecto">
+   <property name="text">
+    <string>Guardar Proyecto</string>
+   </property>
+  </action>
+  <action name="actionCerrar_Proyecto">
+   <property name="text">
+    <string>Cerrar Proyecto</string>
+   </property>
+  </action>
+  <action name="actionEditar_Factor">
+   <property name="text">
+    <string>Editar Factor</string>
+   </property>
+  </action>
+  <action name="actionBuscar">
+   <property name="text">
+    <string>Buscar</string>
+   </property>
+  </action>
+  <action name="actionHistorial_completo">
+   <property name="text">
+    <string>Historial completo</string>
+   </property>
+  </action>
+  <action name="actionGenerar_Reporte">
+   <property name="text">
+    <string>Generar Reporte</string>
+   </property>
+  </action>
+  <action name="actionManual_de_Usuario">
+   <property name="text">
+    <string>Manual de Usuario</string>
+   </property>
+  </action>
+  <action name="actionAcerca_de_RASP">
+   <property name="text">
+    <string>Acerca de RASP</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
