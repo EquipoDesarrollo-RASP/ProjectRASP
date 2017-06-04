@@ -6,6 +6,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    QFont f("Arial", 14, QFont::Bold);
+    ui->label->setFont(f);
 }
 
 MainWindow::~MainWindow()
@@ -15,40 +17,45 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_ModeloSolucion_clicked()
 {
-    ui->label->setText("Modelo Solucion");
+    ui->label->setText("El porcentaje de riesgo estimado es: Modelo Solucion");
 }
 
 void MainWindow::on_pushButton_Requerimientos_clicked()
 {
-    ui->label->setText("Requerimientos");
+    ui->label->setText("El porcentaje de riesgo estimado es: Requerimientos");
 }
 
 void MainWindow::on_pushButton_Disenio_clicked()
 {
-    ui->label->setText("Diseño");
+    ui->label->setText("El porcentaje de riesgo estimado es: Diseño");
 }
 
 void MainWindow::on_pushButton_Pruebas_clicked()
 {
-    ui->label->setText("Plan de Pruebas");
+    ui->label->setText("El porcentaje de riesgo estimado es: Plan de Pruebas");
 }
 
 void MainWindow::on_pushButton_PlanGeneral_clicked()
 {
-    ui->label->setText("Plan General");
+    ui->label->setText("El porcentaje de riesgo estimado es: Plan General");
 }
 
 void MainWindow::on_pushButton_Temporizacion_clicked()
 {
-    ui->label->setText("Temporizacion");
+    ui->label->setText("El porcentaje de riesgo estimado es: Temporizacion");
 }
 
 void MainWindow::on_pushButton_CicloVida_clicked()
 {
-    ui->label->setText("Determinacion del Ciclo de Vida");
+    ui->label->setText("El porcentaje de riesgo estimado es: Det. del Ciclo de Vida");
 }
 
 void MainWindow::on_pushButton_Riesgos_clicked()
 {
-    ui->label->setText("Gestion de Riesgos");
+    ui->label->setText("El porcentaje de riesgo estimado es: G. de Riesgos");
+}
+
+void MainWindow::on_pushButton_Estimacion_clicked()
+{
+    ui->label->setText("El porcentaje de riesgo estimado es: Estimacion");
 }

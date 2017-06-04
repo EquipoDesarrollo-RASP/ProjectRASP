@@ -32,6 +32,8 @@ private slots:
 
     void on_pushButton_Riesgos_clicked();
 
+    void on_pushButton_Estimacion_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
