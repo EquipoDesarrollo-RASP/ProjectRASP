@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QFont f("Arial", 14, QFont::Bold);
+    QFont f("MS Shell Dig 2", 14, QFont::Bold);
     ui->label->setFont(f);
 }
 
