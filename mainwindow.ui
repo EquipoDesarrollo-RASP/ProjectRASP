@@ -6,34 +6,24 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>799</width>
-    <height>520</height>
+
+    <width>797</width>
+    <height>495</height>
+
    </rect>
   </property>
   <property name="windowTitle">
    <string>RASP</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="pushButton_Estimacion">
-    <property name="geometry">
-     <rect>
-      <x>670</x>
-      <y>410</y>
-      <width>121</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Estimacion</string>
-    </property>
-   </widget>
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>80</y>
-      <width>641</width>
-      <height>321</height>
+      <x>140</x>
+      <y>60</y>
+      <width>651</width>
+      <height>341</height>
+
      </rect>
     </property>
     <property name="currentIndex">
@@ -41,7 +31,9 @@
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
-      <string>Formulario</string>
+
+      <string>Incidencias</string>
+
      </attribute>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
@@ -180,22 +172,16 @@
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
-      <string>Incidencia</string>
+
+      <string>Formulario</string>
      </attribute>
     </widget>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>20</y>
-      <width>481</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;El porcentaje de riesgo estimado es:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>Historial</string>
+     </attribute>
+    </widget>
+
    </widget>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
@@ -264,6 +250,13 @@
       </widget>
      </item>
      <item>
+      <widget class="QPushButton" name="pushButton_Desarrollo">
+       <property name="text">
+        <string>Desarrollo</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="pushButton_RTecnologia">
        <property name="text">
         <string>Riesgo deTecnologia</string>
@@ -307,26 +300,130 @@
      </item>
     </layout>
    </widget>
-   <widget class="QLabel" name="label_Factor_Seleccionado">
+
+   <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>410</y>
-      <width>331</width>
-      <height>31</height>
+      <x>140</x>
+      <y>0</y>
+      <width>661</width>
+      <height>51</height>
      </rect>
     </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Factor Seleccionado: &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <pointsize>24</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>NIVEL DE RIESGO:   </string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="Nivel_Riesgo">
+       <property name="font">
+        <font>
+         <pointsize>24</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="text">
+        <string>Faltan Datos  </string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>Árbol de Riesgos</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>400</y>
+      <width>651</width>
+      <height>41</height>
+     </rect>
     </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QPushButton" name="pushButton_Confirmar">
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Confirmar Estimación</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_Descartar">
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Descartar Estimación</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_Estimacion">
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Estimar</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+
    </widget>
   </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>799</width>
+
+     <width>797</width>
+
      <height>21</height>
     </rect>
    </property>
@@ -365,15 +462,6 @@
    <addaction name="menuHistorial"/>
    <addaction name="menuAyuda"/>
   </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-  </widget>
-  <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNuevo_Proyecto">
    <property name="text">
     <string>Nuevo Proyecto</string>
