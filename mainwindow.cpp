@@ -8,8 +8,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     QFont f("MS Shell Dig 2", 14, QFont::Bold);
     ui->label->setFont(f);
-    QFont s("MS Shell Dig 2", 10, QFont::Bold);
-    ui->label_Factor_Seleccionado->setFont(s);
 }
 
 MainWindow::~MainWindow()
@@ -19,59 +17,51 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_ModeloSolucion_clicked()
 {
-    ui->label->setText("El porcentaje de riesgo estimado es: Modelo Solucion");
-    ui->label_Factor_Seleccionado->setText("Factor Seleccionado: Modelo Solución");
+    ui->label->setText("NIVEL DE RIESGO:  Modelo Solucion");
 }
 
 void MainWindow::on_pushButton_Requerimientos_clicked()
 {
-    ui->label->setText("El porcentaje de riesgo estimado es: Requerimientos");
-    ui->label_Factor_Seleccionado->setText("Factor Seleccionado: Requerimientos");
+    ui->label->setText("NIVEL DE RIESGO:  Requerimientos");
 }
 
 void MainWindow::on_pushButton_Disenio_clicked()
 {
-    ui->label->setText("El porcentaje de riesgo estimado es: Diseño");
-    ui->label_Factor_Seleccionado->setText("Factor Seleccionado: Diseño");
+    ui->label->setText("NIVEL DE RIESGO:  Diseño");
 }
 
 
 void MainWindow::on_pushButton_Pruebas_clicked()
 {
-    ui->label->setText("El porcentaje de riesgo estimado es: Plan de Pruebas");
-    ui->label_Factor_Seleccionado->setText("Factor Seleccionado: Plan de Pruebas");
+    ui->label->setText("NIVEL DE RIESGO:  Plan de Pruebas");
 }
 
 
 void MainWindow::on_pushButton_PlanGeneral_clicked()
 {
-    ui->label->setText("El porcentaje de riesgo estimado es: Plan General");
-    ui->label_Factor_Seleccionado->setText("Factor Seleccionado: Plan General");
+    ui->label->setText("NIVEL DE RIESGO:  Plan General");
 }
 
 
 void MainWindow::on_pushButton_Temporizacion_clicked()
 {
-    ui->label->setText("El porcentaje de riesgo estimado es: Temporizacion");
-    ui->label_Factor_Seleccionado->setText("Factor Seleccionado: Temporización");
+    ui->label->setText("NIVEL DE RIESGO:  Temporizacion");
 }
 
 
 void MainWindow::on_pushButton_CicloVida_clicked()
 {
-    ui->label->setText("El porcentaje de riesgo estimado es: Det. del Ciclo de Vida");
-    ui->label_Factor_Seleccionado->setText("Factor Seleccionado: Det. del Ciclo de Vida");
+    ui->label->setText("NIVEL DE RIESGO:  Det. del Ciclo de Vida");
 }
 
 
 void MainWindow::on_pushButton_Riesgos_clicked()
 {
-    ui->label->setText("El porcentaje de riesgo estimado es: G. de Riesgos");
-    ui->label_Factor_Seleccionado->setText("Factor Seleccionado: G. de Riesgos");
+    ui->label->setText("NIVEL DE RIESGO:  G. de Riesgos");
 }
 
 
 void MainWindow::on_pushButton_Estimacion_clicked()
 {
-    ui->label->setText("El porcentaje de riesgo estimado es: Estimacion");
+    ui->label->setText("NIVEL DE RIESGO:  Estimacion");
 }
