@@ -24,11 +24,16 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
-    <widget class="QWidget" name="tab">
+    <widget class="QWidget" name="tab_Incidencias">
      <attribute name="title">
       <string>Incidencias</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_Formulario">
+     <attribute name="title">
+      <string>Formulario</string>
      </attribute>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
@@ -168,12 +173,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="tab_2">
-     <attribute name="title">
-      <string>Formulario</string>
-     </attribute>
-    </widget>
-    <widget class="QWidget" name="tab_3">
+    <widget class="QWidget" name="tab_Historial">
      <attribute name="title">
       <string>Historial</string>
      </attribute>
