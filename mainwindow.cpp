@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "fp.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -64,4 +65,15 @@ void MainWindow::on_pushButton_Riesgos_clicked()
 void MainWindow::on_pushButton_Estimacion_clicked()
 {
     ui->label->setText("NIVEL DE RIESGO:  Estimacion");
+}
+
+void MainWindow::on_horizontalSlider_Respuesta_1_valueChanged(int value)
+{
+    QString valor;
+    ConjuntoDifuso Documentacion(value);
+
+    double resultado = Documentacion.Triangular(0,50,70);
+
+    valor.setNum(resultado);
+    ui->Nivel_Riesgo->setText(valor);
 }

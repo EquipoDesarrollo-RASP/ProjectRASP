@@ -6,10 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-
     <width>797</width>
     <height>495</height>
- 
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,12 +17,10 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-
       <x>140</x>
       <y>60</y>
       <width>651</width>
       <height>341</height>
- 
      </rect>
     </property>
     <property name="currentIndex">
@@ -32,9 +28,7 @@
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
-
       <string>Incidencias</string>
- 
      </attribute>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
@@ -100,6 +94,9 @@
          <widget class="QSlider" name="horizontalSlider_Respuesta_1">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="tickInterval">
+           <number>0</number>
           </property>
          </widget>
         </item>
@@ -173,7 +170,6 @@
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
-
       <string>Formulario</string>
      </attribute>
     </widget>
@@ -182,7 +178,6 @@
       <string>Historial</string>
      </attribute>
     </widget>
- 
    </widget>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
@@ -301,7 +296,6 @@
      </item>
     </layout>
    </widget>
-
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
@@ -405,7 +399,6 @@
       </widget>
      </item>
     </layout>
- 
    </widget>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
@@ -422,9 +415,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-
      <width>797</width>
- 
      <height>21</height>
     </rect>
    </property>

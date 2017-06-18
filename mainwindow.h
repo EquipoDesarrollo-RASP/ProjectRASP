@@ -34,6 +34,10 @@ private slots:
 
     void on_pushButton_Estimacion_clicked();
 
+    void on_horizontalSlider_Respuesta_1_actionTriggered(int action);
+
+    void on_horizontalSlider_Respuesta_1_valueChanged(int value);
+
 private:
     Ui::MainWindow *ui;
 };
