@@ -38,8 +38,44 @@ private slots:
 
     void on_horizontalSlider_Respuesta_1_valueChanged(int value);
 
+    void on_horizontalSlider_Respuesta_2_valueChanged(int value);
+
+    void on_horizontalSlider_Respuesta_3_valueChanged(int value);
+
 private:
     Ui::MainWindow *ui;
+    double valorModeloSolucion1;
+    double valorModeloSolucion2;
+    double valorModeloSolucion3;
+
+    double valorRequerimientos1;
+    double valorRequerimientos2;
+    double valorRequerimientos3;
+
+    double valorPlanGeneral1;
+    double valorPlanGeneral2;
+    double valorPlanGeneral3;
+
+    double valorDisenio1;
+    double valorDisenio2;
+    double valorDisenio3;
+
+    double valorPruebas1;
+    double valorPruebas2;
+    double valorPruebas3;
+
+    double valorTemporizacion1;
+    double valorTemporizacion2;
+    double valorTemporizacion3;
+
+    double valorCicloVida1;
+    double valorCicloVida2;
+    double valorCicloVida3;
+
+    double var1;
+    double var2;
+    double var3;
+
 };
 
 #endif // MAINWINDOW_H

@@ -26,10 +26,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
         mainwindow.cpp \
     fp.cpp \
-    inferenciafuzzy.cpp
+    inferenciafuzzy.cpp \
+    fo.cpp
 
 HEADERS  += mainwindow.h \
     fp.h \
-    inferenciafuzzy.h
+    inferenciafuzzy.h \
+    fo.h
 
 FORMS    += mainwindow.ui

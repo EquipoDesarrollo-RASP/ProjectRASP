@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "fp.h"
+#include "inferenciafuzzy.h"
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -9,6 +10,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     QFont f("MS Shell Dig 2", 14, QFont::Bold);
     ui->label->setFont(f);
+    var1 = 0;
+    var2 = 0;
+    var3 = 0;
+    ui->pushButton_Estimacion->setEnabled(false);
 }
 
 MainWindow::~MainWindow()
@@ -18,41 +23,178 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_ModeloSolucion_clicked()
 {
-    ui->label->setText("NIVEL DE RIESGO:  Modelo Solucion");
+    QMessageBox::StandardButton confirmacion = QMessageBox::question(this, "Confirmacion de Datos", "¿Confirmar Estimacion?",
+                                                                     QMessageBox::Yes | QMessageBox::No);
+
+    if(confirmacion == QMessageBox::Yes){
+
+        valorModeloSolucion1 = ui->horizontalSlider_Respuesta_1->value();
+        valorModeloSolucion2 = ui->horizontalSlider_Respuesta_2->value();
+        valorModeloSolucion3 = ui->horizontalSlider_Respuesta_3->value();
+
+        InferenciaFuzzy CalculoModeloSolucion(valorModeloSolucion1,valorModeloSolucion2,valorModeloSolucion3);
+        CalculoModeloSolucion.InferenciaMamdani();
+
+        double resultado;
+        resultado = CalculoModeloSolucion.GetResultadoFinal();
+
+        QString ResultadoModeloSolucion;
+        ResultadoModeloSolucion.setNum(resultado);
+        ui->Nivel_Riesgo->setText(ResultadoModeloSolucion+"%");
+        ui->pushButton_ModeloSolucion->setEnabled(false);
+    }
+
+//    var1 = valorModeloSolucion1;
+//    var2 = valorModeloSolucion2;
+//    var3 = valorModeloSolucion3;
 }
 
 void MainWindow::on_pushButton_Requerimientos_clicked()
 {
-    ui->label->setText("NIVEL DE RIESGO:  Requerimientos");
+    QMessageBox::StandardButton confirmacion = QMessageBox::question(this, "Confirmacion de Datos", "¿Confirmar Estimacion?",
+                                                                     QMessageBox::Yes | QMessageBox::No);
+
+    if(confirmacion == QMessageBox::Yes){
+
+        valorRequerimientos1 = ui->horizontalSlider_Respuesta_1->value();
+        valorRequerimientos2 = ui->horizontalSlider_Respuesta_2->value();
+        valorRequerimientos3 = ui->horizontalSlider_Respuesta_3->value();
+
+        InferenciaFuzzy CalculoRequerimientos(valorRequerimientos1,valorRequerimientos2,valorRequerimientos3);
+        CalculoRequerimientos.InferenciaMamdani();
+
+        double resultado;
+        resultado = CalculoRequerimientos.GetResultadoFinal();
+
+        QString ResultadoModeloSolucion;
+        ResultadoModeloSolucion.setNum(resultado);
+        ui->Nivel_Riesgo->setText(ResultadoModeloSolucion+"%");
+        ui->pushButton_Requerimientos->setEnabled(false);
+    }
 }
 
 void MainWindow::on_pushButton_Disenio_clicked()
 {
-    ui->label->setText("NIVEL DE RIESGO:  Diseño");
+    QMessageBox::StandardButton confirmacion = QMessageBox::question(this, "Confirmacion de Datos", "¿Confirmar Estimacion?",
+                                                                     QMessageBox::Yes | QMessageBox::No);
+
+    if(confirmacion == QMessageBox::Yes){
+
+        valorDisenio1 = ui->horizontalSlider_Respuesta_1->value();
+        valorDisenio2 = ui->horizontalSlider_Respuesta_2->value();
+        valorDisenio3 = ui->horizontalSlider_Respuesta_3->value();
+
+        InferenciaFuzzy CalculoModeloSolucion(valorDisenio1,valorDisenio2,valorDisenio3);
+        CalculoModeloSolucion.InferenciaMamdani();
+
+        double resultado;
+        resultado = CalculoModeloSolucion.GetResultadoFinal();
+
+        QString ResultadoModeloSolucion;
+        ResultadoModeloSolucion.setNum(resultado);
+        ui->Nivel_Riesgo->setText(ResultadoModeloSolucion+"%");
+        ui->pushButton_Disenio->setEnabled(false);
+    }
 }
 
 
 void MainWindow::on_pushButton_Pruebas_clicked()
 {
-    ui->label->setText("NIVEL DE RIESGO:  Plan de Pruebas");
+    QMessageBox::StandardButton confirmacion = QMessageBox::question(this, "Confirmacion de Datos", "¿Confirmar Estimacion?",
+                                                                     QMessageBox::Yes | QMessageBox::No);
+
+    if(confirmacion == QMessageBox::Yes){
+
+        valorPruebas1 = ui->horizontalSlider_Respuesta_1->value();
+        valorPruebas2 = ui->horizontalSlider_Respuesta_2->value();
+        valorPruebas3 = ui->horizontalSlider_Respuesta_3->value();
+
+        InferenciaFuzzy CalculoModeloSolucion(valorPruebas1,valorPruebas2,valorPruebas3);
+        CalculoModeloSolucion.InferenciaMamdani();
+
+        double resultado;
+        resultado = CalculoModeloSolucion.GetResultadoFinal();
+
+        QString ResultadoModeloSolucion;
+        ResultadoModeloSolucion.setNum(resultado);
+        ui->Nivel_Riesgo->setText(ResultadoModeloSolucion+"%");
+        ui->pushButton_Pruebas->setEnabled(false);
+    }
 }
 
 
 void MainWindow::on_pushButton_PlanGeneral_clicked()
 {
-    ui->label->setText("NIVEL DE RIESGO:  Plan General");
+    QMessageBox::StandardButton confirmacion = QMessageBox::question(this, "Confirmacion de Datos", "¿Confirmar Estimacion?",
+                                                                     QMessageBox::Yes | QMessageBox::No);
+
+    if(confirmacion == QMessageBox::Yes){
+
+        valorPlanGeneral1 = ui->horizontalSlider_Respuesta_1->value();
+        valorPlanGeneral2 = ui->horizontalSlider_Respuesta_2->value();
+        valorPlanGeneral3 = ui->horizontalSlider_Respuesta_3->value();
+
+        InferenciaFuzzy CalculoModeloSolucion(valorPlanGeneral1,valorPlanGeneral2,valorPlanGeneral3);
+        CalculoModeloSolucion.InferenciaMamdani();
+
+        double resultado;
+        resultado = CalculoModeloSolucion.GetResultadoFinal();
+
+        QString ResultadoModeloSolucion;
+        ResultadoModeloSolucion.setNum(resultado);
+        ui->Nivel_Riesgo->setText(ResultadoModeloSolucion+"%");
+        ui->pushButton_PlanGeneral->setEnabled(false);
+    }
 }
 
 
 void MainWindow::on_pushButton_Temporizacion_clicked()
 {
-    ui->label->setText("NIVEL DE RIESGO:  Temporizacion");
+    QMessageBox::StandardButton confirmacion = QMessageBox::question(this, "Confirmacion de Datos", "¿Confirmar Estimacion?",
+                                                                     QMessageBox::Yes | QMessageBox::No);
+
+    if(confirmacion == QMessageBox::Yes){
+
+        valorTemporizacion1 = ui->horizontalSlider_Respuesta_1->value();
+        valorTemporizacion2 = ui->horizontalSlider_Respuesta_2->value();
+        valorTemporizacion3 = ui->horizontalSlider_Respuesta_3->value();
+
+        InferenciaFuzzy CalculoModeloSolucion(valorTemporizacion1,valorTemporizacion2,valorTemporizacion3);
+        CalculoModeloSolucion.InferenciaMamdani();
+
+        double resultado;
+        resultado = CalculoModeloSolucion.GetResultadoFinal();
+
+        QString ResultadoModeloSolucion;
+        ResultadoModeloSolucion.setNum(resultado);
+        ui->Nivel_Riesgo->setText(ResultadoModeloSolucion+"%");
+        ui->pushButton_Temporizacion->setEnabled(false);
+    }
 }
 
 
 void MainWindow::on_pushButton_CicloVida_clicked()
 {
-    ui->label->setText("NIVEL DE RIESGO:  Det. del Ciclo de Vida");
+    QMessageBox::StandardButton confirmacion = QMessageBox::question(this, "Confirmacion de Datos", "¿Confirmar Estimacion?",
+                                                                     QMessageBox::Yes | QMessageBox::No);
+
+    if(confirmacion == QMessageBox::Yes){
+
+        valorCicloVida1 = ui->horizontalSlider_Respuesta_1->value();
+        valorCicloVida2 = ui->horizontalSlider_Respuesta_2->value();
+        valorCicloVida3 = ui->horizontalSlider_Respuesta_3->value();
+
+        InferenciaFuzzy CalculoModeloSolucion(valorCicloVida1,valorCicloVida2,valorCicloVida3);
+        CalculoModeloSolucion.InferenciaMamdani();
+
+        double resultado;
+        resultado = CalculoModeloSolucion.GetResultadoFinal();
+
+        QString ResultadoModeloSolucion;
+        ResultadoModeloSolucion.setNum(resultado);
+        ui->Nivel_Riesgo->setText(ResultadoModeloSolucion+"%");
+        ui->pushButton_CicloVida->setEnabled(false);
+    }
 }
 
 
@@ -65,15 +207,4 @@ void MainWindow::on_pushButton_Riesgos_clicked()
 void MainWindow::on_pushButton_Estimacion_clicked()
 {
     ui->label->setText("NIVEL DE RIESGO:  Estimacion");
-}
-
-void MainWindow::on_horizontalSlider_Respuesta_1_valueChanged(int value)
-{
-    QString valor;
-    ConjuntoDifuso Documentacion(value);
-
-    double resultado = Documentacion.Triangular(0,50,70);
-
-    valor.setNum(resultado);
-    ui->Nivel_Riesgo->setText(valor);
 }
