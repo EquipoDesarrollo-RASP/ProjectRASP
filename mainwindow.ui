@@ -531,20 +531,6 @@
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_Estimacion">
-       <property name="font">
-        <font>
-         <pointsize>9</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Estimar</string>
-       </property>
-      </widget>
-     </item>
     </layout>
    </widget>
   </widget>

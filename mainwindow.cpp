@@ -13,7 +13,6 @@ MainWindow::MainWindow(QWidget *parent) :
     var1 = 0;
     var2 = 0;
     var3 = 0;
-    ui->pushButton_Estimacion->setEnabled(false);
 }
 
 MainWindow::~MainWindow()
@@ -41,7 +40,7 @@ void MainWindow::on_pushButton_ModeloSolucion_clicked()
         QString ResultadoModeloSolucion;
         ResultadoModeloSolucion.setNum(resultado);
         ui->Nivel_Riesgo->setText(ResultadoModeloSolucion+"%");
-        ui->pushButton_ModeloSolucion->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
+        ui->pushButton_ModeloSolucion->setStyleSheet("background-color:yellow;border-style: outset;border-width: 6px;border-color: gray;");
         ui->pushButton_ModeloSolucion->setEnabled(false);
     }
 
