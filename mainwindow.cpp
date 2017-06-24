@@ -207,6 +207,70 @@ void MainWindow::on_pushButton_Estimacion_clicked()
 
 void MainWindow::on_pushButton_Confirmar_clicked()
 {
+    // Se cambia de color verde el boton que fue ejecutado
+    if(ui->pushButton_CicloVida->isEnabled()){
+        ui->pushButton_CicloVida->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
+    }
+
+    if(ui->pushButton_Desarrollo->isEnabled()){
+        ui->pushButton_Desarrollo->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
+    }
+
+    if(ui->pushButton_Disenio->isEnabled()){
+        ui->pushButton_Disenio->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
+    }
+
+    if(ui->pushButton_ModeloSolucion->isEnabled()){
+        ui->pushButton_ModeloSolucion->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
+    }
+
+    if(ui->pushButton_PlanGeneral->isEnabled()){
+        ui->pushButton_PlanGeneral->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
+    }
+
+    if(ui->pushButton_Pruebas->isEnabled()){
+        ui->pushButton_Pruebas->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
+    }
+
+    if(ui->pushButton_Requerimientos->isEnabled()){
+        ui->pushButton_Requerimientos->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
+    }
+
+    if(ui->pushButton_REstimacion->isEnabled()){
+        ui->pushButton_REstimacion->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
+    }
+
+    if(ui->pushButton_RHerramientas->isEnabled()){
+        ui->pushButton_RHerramientas->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
+    }
+
+    if(ui->pushButton_Riesgos->isEnabled()){
+        ui->pushButton_Riesgos->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
+    }
+
+    if(ui->pushButton_ROrganizacional->isEnabled()){
+        ui->pushButton_ROrganizacional->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
+    }
+
+    if(ui->pushButton_RPersonal->isEnabled()){
+        ui->pushButton_RPersonal->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
+    }
+
+    if(ui->pushButton_RRequerimiento->isEnabled()){
+        ui->pushButton_RRequerimiento->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
+    }
+
+    if(ui->pushButton_RTecnologia->isEnabled()){
+        ui->pushButton_RTecnologia->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
+    }
+
+    if(ui->pushButton_Temporizacion->isEnabled()){
+        ui->pushButton_Temporizacion->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
+    }
+
+    if(ui->pushButton_Desarrollo->isEnabled()){
+        ui->pushButton_Desarrollo->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
+    }
 
 
     // Se desbloquea todos los botones
