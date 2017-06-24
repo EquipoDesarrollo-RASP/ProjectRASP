@@ -51,26 +51,22 @@ void MainWindow::on_pushButton_ModeloSolucion_clicked()
 
 void MainWindow::on_pushButton_Requerimientos_clicked()
 {
-    QMessageBox::StandardButton confirmacion = QMessageBox::question(this, "Confirmacion de Datos", "¿Confirmar Estimacion?",
-                                                                     QMessageBox::Yes | QMessageBox::No);
-
-    if(confirmacion == QMessageBox::Yes){
-
-        valorRequerimientos1 = ui->horizontalSlider_Respuesta_1->value();
-        valorRequerimientos2 = ui->horizontalSlider_Respuesta_2->value();
-        valorRequerimientos3 = ui->horizontalSlider_Respuesta_3->value();
-
-        InferenciaFuzzy CalculoRequerimientos(valorRequerimientos1,valorRequerimientos2,valorRequerimientos3);
-        CalculoRequerimientos.InferenciaMamdani();
-
-        double resultado;
-        resultado = CalculoRequerimientos.GetResultadoFinal();
-
-        QString ResultadoModeloSolucion;
-        ResultadoModeloSolucion.setNum(resultado);
-        ui->Nivel_Riesgo->setText(ResultadoModeloSolucion+"%");
-        ui->pushButton_Requerimientos->setEnabled(false);
-    }
+    ui->pushButton_Requerimientos->setStyleSheet("background-color:yellow;border-style: outset;border-width: 6px;border-color: gray;");
+    ui->pushButton_CicloVida->setEnabled(false);
+    ui->pushButton_Desarrollo->setEnabled(false);
+    ui->pushButton_Disenio->setEnabled(false);
+    ui->pushButton_ModeloSolucion->setEnabled(false);
+    ui->pushButton_PlanGeneral->setEnabled(false);
+    ui->pushButton_Pruebas->setEnabled(false);
+    ui->pushButton_REstimacion->setEnabled(false);
+    ui->pushButton_RHerramientas->setEnabled(false);
+    ui->pushButton_Riesgos->setEnabled(false);
+    ui->pushButton_ROrganizacional->setEnabled(false);
+    ui->pushButton_RPersonal->setEnabled(false);
+    ui->pushButton_RRequerimiento->setEnabled(false);
+    ui->pushButton_RTecnologia->setEnabled(false);
+    ui->pushButton_Temporizacion->setEnabled(false);
+    ui->pushButton_ArbolDeRiesgos->setEnabled(false);
 }
 
 void MainWindow::on_pushButton_Disenio_clicked()
@@ -207,4 +203,27 @@ void MainWindow::on_pushButton_Riesgos_clicked()
 void MainWindow::on_pushButton_Estimacion_clicked()
 {
     ui->label->setText("NIVEL DE RIESGO:  Estimacion");
+}
+
+void MainWindow::on_pushButton_Confirmar_clicked()
+{
+
+
+    // Se desbloquea todos los botones
+    ui->pushButton_CicloVida->setEnabled(true);
+    ui->pushButton_Desarrollo->setEnabled(true);
+    ui->pushButton_Disenio->setEnabled(true);
+    ui->pushButton_ModeloSolucion->setEnabled(true);
+    ui->pushButton_PlanGeneral->setEnabled(true);
+    ui->pushButton_Pruebas->setEnabled(true);
+    ui->pushButton_REstimacion->setEnabled(true);
+    ui->pushButton_RHerramientas->setEnabled(true);
+    ui->pushButton_Riesgos->setEnabled(true);
+    ui->pushButton_ROrganizacional->setEnabled(true);
+    ui->pushButton_RPersonal->setEnabled(true);
+    ui->pushButton_RRequerimiento->setEnabled(true);
+    ui->pushButton_RTecnologia->setEnabled(true);
+    ui->pushButton_Temporizacion->setEnabled(true);
+    ui->pushButton_ArbolDeRiesgos->setEnabled(true);
+    ui->pushButton_Requerimientos->setEnabled(true);
 }

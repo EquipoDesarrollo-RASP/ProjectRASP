@@ -34,6 +34,8 @@ private slots:
 
     void on_pushButton_Estimacion_clicked();
 
+    void on_pushButton_Confirmar_clicked();
+
 private:
     Ui::MainWindow *ui;
     double valorModeloSolucion1;

@@ -485,7 +485,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="pushButton_ArbolDeRiesgos">
        <property name="text">
         <string>Árbol de Riesgos</string>
        </property>
