@@ -41,14 +41,14 @@
         <item>
          <widget class="QLabel" name="label_Pregunta_1">
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;¿Se ha hecho el trabajo de documentación?&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;¿Cómo está el trabajo de esta documentación?&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QLabel" name="label_Pregunta_2">
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;¿Se ha retrasado el proyecto?&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;¿Se ha retrasado el proyecto por&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;la documentación?&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
@@ -97,46 +97,70 @@
         </item>
         <item>
          <widget class="QSlider" name="horizontalSlider_Respuesta_1">
+          <property name="value">
+           <number>2</number>
+          </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
+          <property name="tickPosition">
+           <enum>QSlider::TicksBelow</enum>
+          </property>
           <property name="tickInterval">
-           <number>0</number>
+           <number>10</number>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QLabel" name="label_Respuesta_1">
           <property name="text">
-           <string>      Nada           Poco             Algo           Suficiente         Harto</string>
+           <string>      Malo                Pobre            Algo bueno              Bueno</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QSlider" name="horizontalSlider_Respuesta_2">
+          <property name="value">
+           <number>90</number>
+          </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="tickPosition">
+           <enum>QSlider::TicksBelow</enum>
+          </property>
+          <property name="tickInterval">
+           <number>10</number>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QLabel" name="label_Respuesta_2">
           <property name="text">
-           <string>      Nada           Poco             Algo           Suficiente         Harto</string>
+           <string>      Poco                               Algo                              Mucho</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QSlider" name="horizontalSlider_Respuesta_3">
+          <property name="value">
+           <number>90</number>
+          </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="tickPosition">
+           <enum>QSlider::TicksBelow</enum>
+          </property>
+          <property name="tickInterval">
+           <number>10</number>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QLabel" name="label_Respuesta_3">
           <property name="text">
-           <string>      Nada           Poco             Algo           Suficiente         Harto</string>
+           <string>      Poco                                Algo                    Muy Importante</string>
           </property>
          </widget>
         </item>
