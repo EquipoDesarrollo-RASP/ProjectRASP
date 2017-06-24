@@ -41,6 +41,7 @@ void MainWindow::on_pushButton_ModeloSolucion_clicked()
         QString ResultadoModeloSolucion;
         ResultadoModeloSolucion.setNum(resultado);
         ui->Nivel_Riesgo->setText(ResultadoModeloSolucion+"%");
+        ui->pushButton_ModeloSolucion->setStyleSheet("background-color:rgb(180,0,0);");
         ui->pushButton_ModeloSolucion->setEnabled(false);
     }
 
