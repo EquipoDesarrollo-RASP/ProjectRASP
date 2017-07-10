@@ -47,3 +47,14 @@ float gestor_matrices::Obtener_Mayor(float menores[],int dimension){
 matriz gestor_matrices::Obtener_Matriz(int id){
     return matrices[id];
 }
+
+matriz gestor_matrices::efectos_olvidados(matriz M0, matriz M1){
+    int dimension=M0.getDimension();
+    matriz aux=matriz(dimension,0);
+    for (int i = 0; i < dimension; ++i) {
+        for (int j = 0; j < dimension; ++j) {
+            aux.setValor(i,j,M1.getValor(i,j)-M0.getValor(i,j));
+        }
+    }
+    return aux;
+}

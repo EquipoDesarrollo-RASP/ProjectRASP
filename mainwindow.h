@@ -36,6 +36,8 @@ private slots:
 
     void on_pushButton_Confirmar_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     double valorModeloSolucion1;

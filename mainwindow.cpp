@@ -8,6 +8,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->tabWidget->setTabEnabled(1,false);
+    ui->tabWidget->setTabEnabled(2,false);
     QFont f("MS Shell Dig 2", 14, QFont::Bold);
     ui->label->setFont(f);
     var1 = 0;
@@ -290,4 +292,11 @@ void MainWindow::on_pushButton_Confirmar_clicked()
     ui->pushButton_Temporizacion->setEnabled(true);
     ui->pushButton_ArbolDeRiesgos->setEnabled(true);
     ui->pushButton_Requerimientos->setEnabled(true);
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    ui->tabWidget->setTabEnabled(0,false);
+    ui->tabWidget->setTabEnabled(1,true);
+    ui->tabWidget->setTabEnabled(2,true);
 }
