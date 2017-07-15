@@ -900,7 +900,14 @@
        </layout>
       </item>
       <item row="1" column="0">
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="pushButton_ConfirmarEstimacion">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
         <property name="text">
          <string>Confirmar Estimación</string>
         </property>
@@ -1218,7 +1225,7 @@
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="QPushButton" name="pushButton_Confirmar">
+      <widget class="QPushButton" name="pushButton_CalcularRiesgo">
        <property name="font">
         <font>
          <pointsize>9</pointsize>

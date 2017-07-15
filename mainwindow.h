@@ -40,9 +40,17 @@ private slots:
 
     void on_pushButton_ROrganizacional_clicked();
 
-    void on_pushButton_Confirmar_clicked();
+    void on_pushButton_RPersonal_clicked();
+
+    void on_pushButton_RRequerimiento_clicked();
+
+    void on_pushButton_RTecnologia_clicked();
+
+    void on_pushButton_CalcularRiesgo_clicked();
 
     void on_pushButton_ConfirmarIncidencias_clicked();
+
+    void on_pushButton_ConfirmarEstimacion_clicked();
 
 private:
     Ui::MainWindow *ui;
