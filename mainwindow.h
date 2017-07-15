@@ -57,6 +57,7 @@ private:
     double var1;
     double var2;
     double var3;
+    double ResultadosFactores[15];
 
 };
 
