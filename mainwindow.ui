@@ -49,7 +49,7 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>0</y>
+         <y>-148</y>
          <width>642</width>
          <height>487</height>
         </rect>
@@ -723,7 +723,7 @@
          </layout>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="pushButton_ConfirmarIncidencias">
           <property name="font">
            <font>
             <pointsize>10</pointsize>
@@ -732,7 +732,7 @@
            </font>
           </property>
           <property name="text">
-           <string>Confirmar Inciencias</string>
+           <string>Confirmar Incidencias</string>
           </property>
          </widget>
         </item>

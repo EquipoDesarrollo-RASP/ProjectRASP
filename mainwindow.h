@@ -32,42 +32,20 @@ private slots:
 
     void on_pushButton_Riesgos_clicked();
 
-    void on_pushButton_Estimacion_clicked();
+    void on_pushButton_Desarrollo_clicked();
+
+    void on_pushButton_REstimacion_clicked();
+
+    void on_pushButton_RHerramientas_clicked();
+
+    void on_pushButton_ROrganizacional_clicked();
 
     void on_pushButton_Confirmar_clicked();
 
-    void on_pushButton_clicked();
+    void on_pushButton_ConfirmarIncidencias_clicked();
 
 private:
     Ui::MainWindow *ui;
-    double valorModeloSolucion1;
-    double valorModeloSolucion2;
-    double valorModeloSolucion3;
-
-    double valorRequerimientos1;
-    double valorRequerimientos2;
-    double valorRequerimientos3;
-
-    double valorPlanGeneral1;
-    double valorPlanGeneral2;
-    double valorPlanGeneral3;
-
-    double valorDisenio1;
-    double valorDisenio2;
-    double valorDisenio3;
-
-    double valorPruebas1;
-    double valorPruebas2;
-    double valorPruebas3;
-
-    double valorTemporizacion1;
-    double valorTemporizacion2;
-    double valorTemporizacion3;
-
-    double valorCicloVida1;
-    double valorCicloVida2;
-    double valorCicloVida3;
-
     double var1;
     double var2;
     double var3;
