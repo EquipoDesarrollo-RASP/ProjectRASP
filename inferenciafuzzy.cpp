@@ -41,7 +41,7 @@ void InferenciaFuzzy::InferenciaMamdani(){
 
         //REGLAS DIFUSAS
         FuzzyOperator operador;
-        ConjuntoDifuso Riesgos[4];
+        ConjuntoDifuso Riesgos[23];
 
         //Regla 1
         if(operador.FuzzyAND(Nada_documentacion,operador.FuzzyAND(Mucho_retraso,Muy_importante)) >= 0.1){
@@ -53,10 +53,6 @@ void InferenciaFuzzy::InferenciaMamdani(){
         //Regla 2
         if(operador.FuzzyAND(Nada_documentacion,operador.FuzzyAND(Algo_retraso,Muy_importante)) >= 0.1){
             Riesgos[1].SetValor(operador.FuzzyAND(Nada_documentacion,operador.FuzzyAND(Algo_retraso,Muy_importante)));
-            Riesgos[1].PreCalculoDivisor(90,100);
-            Riesgos[1].PreCalculoDividendo(90,100);
-        }else{
-            Riesgos[1].SetValor(0);
             Riesgos[1].PreCalculoDivisor(90,100);
             Riesgos[1].PreCalculoDividendo(90,100);
         }
@@ -211,7 +207,7 @@ void InferenciaFuzzy::InferenciaMamdani(){
         //DESFUSIFICACION
         int i;
         double divisor,dividendo;
-        for(i = 0; i < 4 ; i++){
+        for(i = 0; i < 23 ; i++){
             divisor += Riesgos[i].GetResultado();
             dividendo += Riesgos[i].GetValor();
         }
