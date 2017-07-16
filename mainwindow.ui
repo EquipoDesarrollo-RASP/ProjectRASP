@@ -27,7 +27,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_Incidencias">
      <attribute name="title">
@@ -49,10 +49,13 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-148</y>
+         <y>0</y>
          <width>642</width>
-         <height>487</height>
+         <height>517</height>
         </rect>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_5">
         <item>
@@ -63,7 +66,61 @@
          </widget>
         </item>
         <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_19">
+          <property name="sizeConstraint">
+           <enum>QLayout::SetDefaultConstraint</enum>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_48">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Modelo Solución:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_17">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_49">
+            <property name="text">
+             <string>Nada Incidente</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSlider" name="horizontalSlider_Incidencia_ModeloSolucion">
+            <property name="maximum">
+             <number>10</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_Incidencia_ModeloSolucion">
+            <property name="text">
+             <string>Absolutamente Incidente</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
          <layout class="QHBoxLayout" name="horizontalLayout_15">
+          <property name="sizeConstraint">
+           <enum>QLayout::SetDefaultConstraint</enum>
+          </property>
           <item>
            <widget class="QLabel" name="label_39">
             <property name="text">
@@ -92,14 +149,17 @@
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="horizontalSlider_13">
+           <widget class="QSlider" name="horizontalSlider_Incidencia_Requerimientos">
+            <property name="maximum">
+             <number>10</number>
+            </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_41">
+           <widget class="QLabel" name="label_Incidencia_Requerimientos">
             <property name="text">
              <string>Absolutamente Incidente</string>
             </property>
@@ -137,14 +197,17 @@
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="horizontalSlider_11">
+           <widget class="QSlider" name="horizontalSlider_Incidencia_Disenio">
+            <property name="maximum">
+             <number>10</number>
+            </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_35">
+           <widget class="QLabel" name="label_Incidencia_Disenio">
             <property name="text">
              <string>Absolutamente Incidente</string>
             </property>
@@ -182,14 +245,17 @@
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="horizontalSlider_9">
+           <widget class="QSlider" name="horizontalSlider_Incidencia_Pruebas">
+            <property name="maximum">
+             <number>10</number>
+            </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_29">
+           <widget class="QLabel" name="label_Incidencia_Pruebas">
             <property name="text">
              <string>Absolutamente Incidente</string>
             </property>
@@ -227,9 +293,9 @@
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="horizontalSlider_12">
+           <widget class="QSlider" name="horizontalSlider_Incidencia_PlanGeneral">
             <property name="maximum">
-             <number>1</number>
+             <number>10</number>
             </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -237,7 +303,7 @@
            </widget>
           </item>
           <item alignment="Qt::AlignRight">
-           <widget class="QLabel" name="label_38">
+           <widget class="QLabel" name="label_Incidencia_PlanGeneral">
             <property name="text">
              <string>Absolutamente Incidente</string>
             </property>
@@ -275,9 +341,9 @@
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="horizontalSlider_10">
+           <widget class="QSlider" name="horizontalSlider_Incidencia_Temporizacion">
             <property name="maximum">
-             <number>1</number>
+             <number>10</number>
             </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -285,7 +351,7 @@
            </widget>
           </item>
           <item alignment="Qt::AlignRight">
-           <widget class="QLabel" name="label_32">
+           <widget class="QLabel" name="label_Incidencia_Temporizacion">
             <property name="text">
              <string>Absolutamente Incidente</string>
             </property>
@@ -323,9 +389,9 @@
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="horizontalSlider_14">
+           <widget class="QSlider" name="horizontalSlider_Incidencia_CicloVida">
             <property name="maximum">
-             <number>1</number>
+             <number>10</number>
             </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -333,7 +399,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_44">
+           <widget class="QLabel" name="label_Incidencia_CicloVida">
             <property name="text">
              <string>Absolutamente Incidente</string>
             </property>
@@ -371,9 +437,9 @@
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="horizontalSlider_15">
+           <widget class="QSlider" name="horizontalSlider_Incidencia_Riesgos">
             <property name="maximum">
-             <number>1</number>
+             <number>10</number>
             </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -381,7 +447,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_47">
+           <widget class="QLabel" name="label_Incidencia_Riesgos">
             <property name="text">
              <string>Absolutamente Incidente</string>
             </property>
@@ -419,9 +485,9 @@
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="horizontalSlider_7">
+           <widget class="QSlider" name="horizontalSlider_Incidencia_Desarrollo">
             <property name="maximum">
-             <number>1</number>
+             <number>10</number>
             </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -429,7 +495,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_23">
+           <widget class="QLabel" name="label_Incidencia_Desarrollo">
             <property name="text">
              <string>Absolutamente Incidente</string>
             </property>
@@ -467,9 +533,9 @@
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="horizontalSlider_6">
+           <widget class="QSlider" name="horizontalSlider_Incidencia_RTecnologia">
             <property name="maximum">
-             <number>1</number>
+             <number>10</number>
             </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -477,7 +543,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_20">
+           <widget class="QLabel" name="label_Incidencia_RTecnologia">
             <property name="text">
              <string>Absolutamente Incidente</string>
             </property>
@@ -515,9 +581,9 @@
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="horizontalSlider_5">
+           <widget class="QSlider" name="horizontalSlider_Incidencia_RPersonal">
             <property name="maximum">
-             <number>1</number>
+             <number>10</number>
             </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -525,7 +591,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_17">
+           <widget class="QLabel" name="label_Incidencia_RPersonal">
             <property name="text">
              <string>Absolutamente Incidente</string>
             </property>
@@ -563,9 +629,9 @@
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="horizontalSlider_8">
+           <widget class="QSlider" name="horizontalSlider_Incidencia_ROrganizacional">
             <property name="maximum">
-             <number>1</number>
+             <number>10</number>
             </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -573,7 +639,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_26">
+           <widget class="QLabel" name="label_Incidencia_ROrganizacional">
             <property name="text">
              <string>Absolutamente Incidente</string>
             </property>
@@ -611,9 +677,9 @@
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="horizontalSlider_3">
+           <widget class="QSlider" name="horizontalSlider_Incidencia_RHerramientas">
             <property name="maximum">
-             <number>1</number>
+             <number>10</number>
             </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -621,7 +687,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_11">
+           <widget class="QLabel" name="label_Incidencia_RHerramientas">
             <property name="text">
              <string>Absolutamente Incidente</string>
             </property>
@@ -659,14 +725,17 @@
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="horizontalSlider_4">
+           <widget class="QSlider" name="horizontalSlider_Incidencia_RRequerimientos">
+            <property name="maximum">
+             <number>10</number>
+            </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_14">
+           <widget class="QLabel" name="label_Incidencia_RRequerimientos">
             <property name="text">
              <string>Absolutamente Incidente</string>
             </property>
@@ -704,9 +773,9 @@
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="horizontalSlider_2">
+           <widget class="QSlider" name="horizontalSlider_Incidencia_REstimacion">
             <property name="maximum">
-             <number>1</number>
+             <number>10</number>
             </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -714,7 +783,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_8">
+           <widget class="QLabel" name="label_Incidencia_REstimacion">
             <property name="text">
              <string>Absolutamente Incidente</string>
             </property>
@@ -810,6 +879,9 @@
             </item>
             <item>
              <widget class="QSlider" name="horizontalSlider_Respuesta_1">
+              <property name="pageStep">
+               <number>1</number>
+              </property>
               <property name="value">
                <number>2</number>
               </property>
@@ -833,6 +905,9 @@
             </item>
             <item>
              <widget class="QSlider" name="horizontalSlider_Respuesta_2">
+              <property name="pageStep">
+               <number>1</number>
+              </property>
               <property name="value">
                <number>90</number>
               </property>
@@ -856,6 +931,9 @@
             </item>
             <item>
              <widget class="QSlider" name="horizontalSlider_Respuesta_3">
+              <property name="pageStep">
+               <number>1</number>
+              </property>
               <property name="value">
                <number>90</number>
               </property>
@@ -1198,7 +1276,7 @@
         <enum>Qt::RightToLeft</enum>
        </property>
        <property name="text">
-        <string>Faltan Datos  </string>
+        <string>100%</string>
        </property>
       </widget>
      </item>
