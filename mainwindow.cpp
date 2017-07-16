@@ -356,7 +356,7 @@ void MainWindow::on_pushButton_CalcularRiesgo_clicked()
     int cant = 0;
     double ResultadoFinal = 0;
     for(i = 0; i<15 ; i++){
-        if(ResultadosFactores[i] != 0){
+        if(ResultadosFactores[i] > 0){
             ResultadoFinal = ResultadosFactores[i] + ResultadoFinal;
             cant++;
         }

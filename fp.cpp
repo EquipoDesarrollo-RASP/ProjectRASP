@@ -113,7 +113,7 @@ void ConjuntoDifuso::PreCalculoDivisor(double minRango, double maxRango){
 
     while(minRango <= maxRango){
         resultado = minRango + resultado;
-        minRango += 10;
+        minRango += 5;
     }
     resultado = resultado * valor;
 
@@ -123,7 +123,7 @@ void ConjuntoDifuso::PreCalculoDividendo(double minRango,double maxRango){
 
     while(minRango <= maxRango){
         valor += valor;
-        minRango += 10;
+        minRango += 5;
     }
 }
 
