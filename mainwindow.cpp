@@ -461,6 +461,21 @@ void MainWindow::on_pushButton_ConfirmarIncidencias_clicked()
     valor[3] = ui->horizontalSlider_Incidencia_Pruebas->value();
     valor[4] = ui->horizontalSlider_Incidencia_PlanGeneral->value();
     valor[5] = ui->horizontalSlider_Incidencia_Temporizacion->value();
+    valor[6] = ui->horizontalSlider_Incidencia_CicloVida->value();
+    valor[7] = ui->horizontalSlider_Incidencia_Riesgos->value();
+    valor[8] = ui->horizontalSlider_Incidencia_Desarrollo->value();
+    valor[9] = ui->horizontalSlider_Incidencia_RTecnologia->value();
+    valor[10] = ui->horizontalSlider_Incidencia_RPersonal->value();
+    valor[11] = ui->horizontalSlider_Incidencia_ROrganizacional->value();
+    valor[12] = ui->horizontalSlider_Incidencia_RHerramientas->value();
+    valor[13] = ui->horizontalSlider_Incidencia_RRequerimientos->value();
+    valor[14] = ui->horizontalSlider_Incidencia_REstimacion->value();
+
+    //Con este ciclo FOR los deja con los valores entre 0 y 1
+    int i;
+    for(i=0 ; i < 15; i++){
+        valor[i] = valor[i] / 10;
+    }
 
     ui->tabWidget->setTabEnabled(0,false);
     ui->tabWidget->setTabEnabled(1,true);
@@ -468,6 +483,8 @@ void MainWindow::on_pushButton_ConfirmarIncidencias_clicked()
     ui->pushButton_ConfirmarEstimacion->setEnabled(true);
 }
 
+
+/*-----------------------------------CALCULO DE LA ESTIMACION DEL FACTOR-----------------------------------------*/
 void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
 {
     // Se cambia de color verde el boton que fue ejecutado
@@ -489,6 +506,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             ui->pushButton_CicloVida->setEnabled(false);
             ui->pushButton_CicloVida->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
             ui->pushButton_CalcularRiesgo->setEnabled(true);
+            ui->horizontalSlider_Incidencia_CicloVida->setEnabled(true);
             ui->pushButton_ConfirmarEstimacion->setEnabled(false);
         }
     }
@@ -511,6 +529,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             ui->pushButton_Desarrollo->setEnabled(false);
             ui->pushButton_Desarrollo->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
             ui->pushButton_CalcularRiesgo->setEnabled(true);
+            ui->horizontalSlider_Incidencia_Desarrollo->setEnabled(true);
             ui->pushButton_ConfirmarEstimacion->setEnabled(false);
         }
     }
@@ -533,6 +552,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             ui->pushButton_Disenio->setEnabled(false);
             ui->pushButton_Disenio->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
             ui->pushButton_CalcularRiesgo->setEnabled(true);
+            ui->horizontalSlider_Incidencia_Disenio->setEnabled(true);
             ui->pushButton_ConfirmarEstimacion->setEnabled(false);
         }
     }
@@ -555,6 +575,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             ui->pushButton_ModeloSolucion->setEnabled(false);
             ui->pushButton_ModeloSolucion->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
             ui->pushButton_CalcularRiesgo->setEnabled(true);
+            ui->horizontalSlider_Incidencia_ModeloSolucion->setEnabled(true);
             ui->pushButton_ConfirmarEstimacion->setEnabled(false);
         }
     }
@@ -577,6 +598,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             ui->pushButton_PlanGeneral->setEnabled(false);
             ui->pushButton_PlanGeneral->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
             ui->pushButton_CalcularRiesgo->setEnabled(true);
+            ui->horizontalSlider_Incidencia_PlanGeneral->setEnabled(true);
             ui->pushButton_ConfirmarEstimacion->setEnabled(false);
         }
     }
@@ -599,6 +621,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             ui->pushButton_Pruebas->setEnabled(false);
             ui->pushButton_Pruebas->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
             ui->pushButton_CalcularRiesgo->setEnabled(true);
+            ui->horizontalSlider_Incidencia_Pruebas->setEnabled(true);
             ui->pushButton_ConfirmarEstimacion->setEnabled(false);
         }
     }
@@ -621,6 +644,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             ui->pushButton_Requerimientos->setEnabled(false);
             ui->pushButton_Requerimientos->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
             ui->pushButton_CalcularRiesgo->setEnabled(true);
+            ui->horizontalSlider_Incidencia_Requerimientos->setEnabled(true);
             ui->pushButton_ConfirmarEstimacion->setEnabled(false);
         }
     }
@@ -643,6 +667,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             ui->pushButton_REstimacion->setEnabled(false);
             ui->pushButton_REstimacion->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
             ui->pushButton_CalcularRiesgo->setEnabled(true);
+            ui->horizontalSlider_Incidencia_REstimacion->setEnabled(true);
             ui->pushButton_ConfirmarEstimacion->setEnabled(false);
         }
     }
@@ -665,6 +690,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             ui->pushButton_RHerramientas->setEnabled(false);
             ui->pushButton_RHerramientas->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
             ui->pushButton_CalcularRiesgo->setEnabled(true);
+            ui->horizontalSlider_Incidencia_RHerramientas->setEnabled(true);
             ui->pushButton_ConfirmarEstimacion->setEnabled(false);
         }
     }
@@ -687,6 +713,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             ui->pushButton_Riesgos->setEnabled(false);
             ui->pushButton_Riesgos->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
             ui->pushButton_CalcularRiesgo->setEnabled(true);
+            ui->horizontalSlider_Incidencia_Riesgos->setEnabled(true);
             ui->pushButton_ConfirmarEstimacion->setEnabled(false);
         }
     }
@@ -709,6 +736,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             ui->pushButton_ROrganizacional->setEnabled(false);
             ui->pushButton_ROrganizacional->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
             ui->pushButton_CalcularRiesgo->setEnabled(true);
+            ui->horizontalSlider_Incidencia_ROrganizacional->setEnabled(true);
             ui->pushButton_ConfirmarEstimacion->setEnabled(false);
         }
     }
@@ -731,6 +759,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             ui->pushButton_RPersonal->setEnabled(false);
             ui->pushButton_RPersonal->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
             ui->pushButton_CalcularRiesgo->setEnabled(true);
+            ui->horizontalSlider_Incidencia_RPersonal->setEnabled(true);
             ui->pushButton_ConfirmarEstimacion->setEnabled(false);
         }
     }
@@ -753,6 +782,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             ui->pushButton_RRequerimiento->setEnabled(false);
             ui->pushButton_RRequerimiento->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
             ui->pushButton_CalcularRiesgo->setEnabled(true);
+            ui->horizontalSlider_Incidencia_RRequerimientos->setEnabled(true);
             ui->pushButton_ConfirmarEstimacion->setEnabled(false);
         }
     }
@@ -775,6 +805,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             ui->pushButton_RTecnologia->setEnabled(false);
             ui->pushButton_RTecnologia->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
             ui->pushButton_CalcularRiesgo->setEnabled(true);
+            ui->horizontalSlider_Incidencia_RTecnologia->setEnabled(true);
             ui->pushButton_ConfirmarEstimacion->setEnabled(false);
         }
     }
@@ -797,6 +828,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             ui->pushButton_Temporizacion->setEnabled(false);
             ui->pushButton_Temporizacion->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
             ui->pushButton_CalcularRiesgo->setEnabled(true);
+            ui->horizontalSlider_Incidencia_Temporizacion->setEnabled(true);
             ui->pushButton_ConfirmarEstimacion->setEnabled(false);
         }
     }
