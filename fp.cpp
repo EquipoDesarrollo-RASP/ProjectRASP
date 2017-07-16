@@ -111,11 +111,13 @@ double ConjuntoDifuso::GetResultado(){
 
 void ConjuntoDifuso::PreCalculoDivisor(double minRango, double maxRango){
 
+    double temp = 0;
+
     while(minRango <= maxRango){
-        resultado = minRango + resultado;
-        minRango += 5;
+        temp = minRango + resultado;
+        minRango+=10;
     }
-    resultado = resultado * valor;
+    resultado = temp * valor;
 
 }
 
@@ -123,17 +125,6 @@ void ConjuntoDifuso::PreCalculoDividendo(double minRango,double maxRango){
 
     while(minRango <= maxRango){
         valor += valor;
-        minRango += 5;
+        minRango+=10;
     }
 }
-
-/*
-std::vector<double> FuncionPertenencia::InversaTriangular(double x, double alfa, double beta, double gamma){
-
-    double resultados[2];
-
-    resultados[0] = alfa + (x*beta) - (x*alfa);
-    resultados[1] = gamma - (x*gamma) + (x*beta);
-
-    return resultados;
-}*/

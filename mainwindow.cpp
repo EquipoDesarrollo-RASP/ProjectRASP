@@ -12,6 +12,23 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tabWidget->setTabEnabled(1,false);
     ui->tabWidget->setTabEnabled(2,false);
     ui->pushButton_CalcularRiesgo->setEnabled(false);
+
+    ui->pushButton_CicloVida->setEnabled(false);
+    ui->pushButton_Desarrollo->setEnabled(false);
+    ui->pushButton_Disenio->setEnabled(false);
+    ui->pushButton_Requerimientos->setEnabled(false);
+    ui->pushButton_PlanGeneral->setEnabled(false);
+    ui->pushButton_Pruebas->setEnabled(false);
+    ui->pushButton_REstimacion->setEnabled(false);
+    ui->pushButton_RHerramientas->setEnabled(false);
+    ui->pushButton_Riesgos->setEnabled(false);
+    ui->pushButton_ROrganizacional->setEnabled(false);
+    ui->pushButton_RPersonal->setEnabled(false);
+    ui->pushButton_RRequerimiento->setEnabled(false);
+    ui->pushButton_RTecnologia->setEnabled(false);
+    ui->pushButton_Temporizacion->setEnabled(false);
+    ui->pushButton_ArbolDeRiesgos->setEnabled(false);
+
     QFont f("MS Shell Dig 2", 14, QFont::Bold);
     ui->label->setFont(f);
 
@@ -46,6 +63,8 @@ void MainWindow::on_pushButton_ModeloSolucion_clicked()
     ui->pushButton_RTecnologia->setEnabled(false);
     ui->pushButton_Temporizacion->setEnabled(false);
     ui->pushButton_ArbolDeRiesgos->setEnabled(false);
+    ui->horizontalSlider_Incidencia_ModeloSolucion->setSliderPosition(10);
+    ui->horizontalSlider_Incidencia_ModeloSolucion->setEnabled(false);
 
 }
 
@@ -68,6 +87,8 @@ void MainWindow::on_pushButton_Requerimientos_clicked()
     ui->pushButton_RTecnologia->setEnabled(false);
     ui->pushButton_Temporizacion->setEnabled(false);
     ui->pushButton_ArbolDeRiesgos->setEnabled(false);
+    ui->horizontalSlider_Incidencia_Requerimientos->setSliderPosition(10);
+    ui->horizontalSlider_Incidencia_Requerimientos->setEnabled(false);
 }
 
 void MainWindow::on_pushButton_Disenio_clicked()
@@ -89,6 +110,8 @@ void MainWindow::on_pushButton_Disenio_clicked()
     ui->pushButton_RTecnologia->setEnabled(false);
     ui->pushButton_Temporizacion->setEnabled(false);
     ui->pushButton_ArbolDeRiesgos->setEnabled(false);
+    ui->horizontalSlider_Incidencia_Disenio->setSliderPosition(10);
+    ui->horizontalSlider_Incidencia_Disenio->setEnabled(false);
 }
 
 
@@ -111,6 +134,8 @@ void MainWindow::on_pushButton_Pruebas_clicked()
     ui->pushButton_RTecnologia->setEnabled(false);
     ui->pushButton_Temporizacion->setEnabled(false);
     ui->pushButton_ArbolDeRiesgos->setEnabled(false);
+    ui->horizontalSlider_Incidencia_Pruebas->setSliderPosition(10);
+    ui->horizontalSlider_Incidencia_Pruebas->setEnabled(false);
 }
 
 
@@ -133,6 +158,8 @@ void MainWindow::on_pushButton_PlanGeneral_clicked()
     ui->pushButton_RTecnologia->setEnabled(false);
     ui->pushButton_Temporizacion->setEnabled(false);
     ui->pushButton_ArbolDeRiesgos->setEnabled(false);
+    ui->horizontalSlider_Incidencia_PlanGeneral->setSliderPosition(10);
+    ui->horizontalSlider_Incidencia_PlanGeneral->setEnabled(false);
 }
 
 
@@ -155,6 +182,8 @@ void MainWindow::on_pushButton_Temporizacion_clicked()
     ui->pushButton_RTecnologia->setEnabled(false);
     ui->pushButton_PlanGeneral->setEnabled(false);
     ui->pushButton_ArbolDeRiesgos->setEnabled(false);
+    ui->horizontalSlider_Incidencia_Temporizacion->setSliderPosition(10);
+    ui->horizontalSlider_Incidencia_Temporizacion->setEnabled(false);
 }
 
 
@@ -177,6 +206,8 @@ void MainWindow::on_pushButton_CicloVida_clicked()
     ui->pushButton_RTecnologia->setEnabled(false);
     ui->pushButton_PlanGeneral->setEnabled(false);
     ui->pushButton_ArbolDeRiesgos->setEnabled(false);
+    ui->horizontalSlider_Incidencia_CicloVida->setSliderPosition(10);
+    ui->horizontalSlider_Incidencia_CicloVida->setEnabled(false);
 }
 
 
@@ -199,6 +230,8 @@ void MainWindow::on_pushButton_Riesgos_clicked()
     ui->pushButton_RTecnologia->setEnabled(false);
     ui->pushButton_PlanGeneral->setEnabled(false);
     ui->pushButton_ArbolDeRiesgos->setEnabled(false);
+    ui->horizontalSlider_Incidencia_Riesgos->setSliderPosition(10);
+    ui->horizontalSlider_Incidencia_Riesgos->setEnabled(false);
 }
 
 void MainWindow::on_pushButton_Desarrollo_clicked()
@@ -220,6 +253,8 @@ void MainWindow::on_pushButton_Desarrollo_clicked()
     ui->pushButton_RTecnologia->setEnabled(false);
     ui->pushButton_PlanGeneral->setEnabled(false);
     ui->pushButton_ArbolDeRiesgos->setEnabled(false);
+    ui->horizontalSlider_Incidencia_Desarrollo->setSliderPosition(10);
+    ui->horizontalSlider_Incidencia_Desarrollo->setEnabled(false);
 }
 
 void MainWindow::on_pushButton_REstimacion_clicked()
@@ -241,6 +276,8 @@ void MainWindow::on_pushButton_REstimacion_clicked()
     ui->pushButton_RTecnologia->setEnabled(false);
     ui->pushButton_PlanGeneral->setEnabled(false);
     ui->pushButton_ArbolDeRiesgos->setEnabled(false);
+    ui->horizontalSlider_Incidencia_REstimacion->setSliderPosition(10);
+    ui->horizontalSlider_Incidencia_REstimacion->setEnabled(false);
 }
 
 void MainWindow::on_pushButton_RHerramientas_clicked()
@@ -262,6 +299,8 @@ void MainWindow::on_pushButton_RHerramientas_clicked()
     ui->pushButton_RTecnologia->setEnabled(false);
     ui->pushButton_PlanGeneral->setEnabled(false);
     ui->pushButton_ArbolDeRiesgos->setEnabled(false);
+    ui->horizontalSlider_Incidencia_RHerramientas->setSliderPosition(10);
+    ui->horizontalSlider_Incidencia_RHerramientas->setEnabled(false);
 }
 
 void MainWindow::on_pushButton_ROrganizacional_clicked()
@@ -283,6 +322,8 @@ void MainWindow::on_pushButton_ROrganizacional_clicked()
     ui->pushButton_RTecnologia->setEnabled(false);
     ui->pushButton_PlanGeneral->setEnabled(false);
     ui->pushButton_ArbolDeRiesgos->setEnabled(false);
+    ui->horizontalSlider_Incidencia_ROrganizacional->setSliderPosition(10);
+    ui->horizontalSlider_Incidencia_ROrganizacional->setEnabled(false);
 }
 
 void MainWindow::on_pushButton_RPersonal_clicked()
@@ -304,6 +345,8 @@ void MainWindow::on_pushButton_RPersonal_clicked()
     ui->pushButton_RTecnologia->setEnabled(false);
     ui->pushButton_PlanGeneral->setEnabled(false);
     ui->pushButton_ArbolDeRiesgos->setEnabled(false);
+    ui->horizontalSlider_Incidencia_RPersonal->setSliderPosition(10);
+    ui->horizontalSlider_Incidencia_RPersonal->setEnabled(false);
 }
 
 void MainWindow::on_pushButton_RRequerimiento_clicked()
@@ -325,6 +368,8 @@ void MainWindow::on_pushButton_RRequerimiento_clicked()
     ui->pushButton_RTecnologia->setEnabled(false);
     ui->pushButton_PlanGeneral->setEnabled(false);
     ui->pushButton_ArbolDeRiesgos->setEnabled(false);
+    ui->horizontalSlider_Incidencia_RRequerimientos->setSliderPosition(10);
+    ui->horizontalSlider_Incidencia_RRequerimientos->setEnabled(false);
 }
 
 void MainWindow::on_pushButton_RTecnologia_clicked()
@@ -346,9 +391,11 @@ void MainWindow::on_pushButton_RTecnologia_clicked()
     ui->pushButton_RPersonal->setEnabled(false);
     ui->pushButton_PlanGeneral->setEnabled(false);
     ui->pushButton_ArbolDeRiesgos->setEnabled(false);
+    ui->horizontalSlider_Incidencia_RTecnologia->setSliderPosition(10);
+    ui->horizontalSlider_Incidencia_RTecnologia->setEnabled(false);
 }
 
-/*--------------------------------PROCESO DE CALCULO DE BOTON CONFIRMACION--------------------------------------*/
+/*--------------------------------PROCESO DE CALCULO DE RIESGO--------------------------------------*/
 void MainWindow::on_pushButton_CalcularRiesgo_clicked()
 {
 
@@ -357,15 +404,26 @@ void MainWindow::on_pushButton_CalcularRiesgo_clicked()
     double ResultadoFinal = 0;
     for(i = 0; i<15 ; i++){
         if(ResultadosFactores[i] > 0){
+            if(ResultadosFactores[i] > 100){
+                ResultadosFactores[i] = 100;
+            }
             ResultadoFinal = ResultadosFactores[i] + ResultadoFinal;
             cant++;
         }
     }
 
     ResultadoFinal = ResultadoFinal/cant;
-
     QString ResultadoRiesgo;
-    ResultadoRiesgo.setNum(ResultadoFinal);
+
+    if(ResultadoFinal >= 100){
+        ResultadoFinal = 100;
+        ResultadoRiesgo.setNum(ResultadoFinal);
+        ResultadoRiesgo.resize(3);
+    }else{
+        ResultadoRiesgo.setNum(ResultadoFinal);
+        ResultadoRiesgo.resize(5);
+    }
+
     ui->Nivel_Riesgo->setText(ResultadoRiesgo+"%");
 
     // Se desbloquea los botones factores y se bloquean los demás botones y tabs
@@ -392,8 +450,17 @@ void MainWindow::on_pushButton_CalcularRiesgo_clicked()
 
 }
 
+/*--------------------------------PROCESO DE CALCULO DE INCIDENCIAS--------------------------------------*/
 void MainWindow::on_pushButton_ConfirmarIncidencias_clicked()
 {
+    float valor[15];
+
+    valor[0] = ui->horizontalSlider_Incidencia_ModeloSolucion->value();
+    valor[1] = ui->horizontalSlider_Incidencia_Requerimientos->value();
+    valor[2] = ui->horizontalSlider_Incidencia_Disenio->value();
+    valor[3] = ui->horizontalSlider_Incidencia_Pruebas->value();
+    valor[4] = ui->horizontalSlider_Incidencia_PlanGeneral->value();
+    valor[5] = ui->horizontalSlider_Incidencia_Temporizacion->value();
 
     ui->tabWidget->setTabEnabled(0,false);
     ui->tabWidget->setTabEnabled(1,true);
@@ -414,10 +481,10 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy CalculoModeloSolucion(var1,var2,var3);
-            CalculoModeloSolucion.InferenciaMamdani();
+            InferenciaFuzzy Calculo(var1,var2,var3);
+            Calculo.InferenciaMamdani();
 
-            ResultadosFactores[0] = CalculoModeloSolucion.GetResultadoFinal();
+            ResultadosFactores[0] = Calculo.GetResultadoFinal();
 
             ui->pushButton_CicloVida->setEnabled(false);
             ui->pushButton_CicloVida->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
@@ -436,10 +503,10 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy CalculoModeloSolucion(var1,var2,var3);
-            CalculoModeloSolucion.InferenciaMamdani();
+            InferenciaFuzzy Calculo(var1,var2,var3);
+            Calculo.InferenciaMamdani();
 
-            ResultadosFactores[1] = CalculoModeloSolucion.GetResultadoFinal();
+            ResultadosFactores[1] = Calculo.GetResultadoFinal();
 
             ui->pushButton_Desarrollo->setEnabled(false);
             ui->pushButton_Desarrollo->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
@@ -458,10 +525,10 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy CalculoModeloSolucion(var1,var2,var3);
-            CalculoModeloSolucion.InferenciaMamdani();
+            InferenciaFuzzy Calculo(var1,var2,var3);
+            Calculo.InferenciaMamdani();
 
-            ResultadosFactores[2] = CalculoModeloSolucion.GetResultadoFinal();
+            ResultadosFactores[2] = Calculo.GetResultadoFinal();
 
             ui->pushButton_Disenio->setEnabled(false);
             ui->pushButton_Disenio->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
@@ -480,10 +547,10 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy CalculoModeloSolucion(var1,var2,var3);
-            CalculoModeloSolucion.InferenciaMamdani();
+            InferenciaFuzzy Calculo(var1,var2,var3);
+            Calculo.InferenciaMamdani();
 
-            ResultadosFactores[3] = CalculoModeloSolucion.GetResultadoFinal();
+            ResultadosFactores[3] = Calculo.GetResultadoFinal();
 
             ui->pushButton_ModeloSolucion->setEnabled(false);
             ui->pushButton_ModeloSolucion->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
@@ -502,10 +569,10 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy CalculoModeloSolucion(var1,var2,var3);
-            CalculoModeloSolucion.InferenciaMamdani();
+            InferenciaFuzzy Calculo(var1,var2,var3);
+            Calculo.InferenciaMamdani();
 
-            ResultadosFactores[4] = CalculoModeloSolucion.GetResultadoFinal();
+            ResultadosFactores[4] = Calculo.GetResultadoFinal();
 
             ui->pushButton_PlanGeneral->setEnabled(false);
             ui->pushButton_PlanGeneral->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
@@ -524,10 +591,10 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy CalculoModeloSolucion(var1,var2,var3);
-            CalculoModeloSolucion.InferenciaMamdani();
+            InferenciaFuzzy Calculo(var1,var2,var3);
+            Calculo.InferenciaMamdani();
 
-            ResultadosFactores[5] = CalculoModeloSolucion.GetResultadoFinal();
+            ResultadosFactores[5] = Calculo.GetResultadoFinal();
 
             ui->pushButton_Pruebas->setEnabled(false);
             ui->pushButton_Pruebas->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
@@ -546,10 +613,10 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy CalculoRequerimientos(var1,var2,var3);
-            CalculoRequerimientos.InferenciaMamdani();
+            InferenciaFuzzy Calculo(var1,var2,var3);
+            Calculo.InferenciaMamdani();
 
-            ResultadosFactores[6] = CalculoRequerimientos.GetResultadoFinal();
+            ResultadosFactores[6] = Calculo.GetResultadoFinal();
 
             ui->pushButton_Requerimientos->setEnabled(false);
             ui->pushButton_Requerimientos->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
@@ -568,10 +635,10 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy CalculoRequerimientos(var1,var2,var3);
-            CalculoRequerimientos.InferenciaMamdani();
+            InferenciaFuzzy Calculo(var1,var2,var3);
+            Calculo.InferenciaMamdani();
 
-            ResultadosFactores[7] = CalculoRequerimientos.GetResultadoFinal();
+            ResultadosFactores[7] = Calculo.GetResultadoFinal();
 
             ui->pushButton_REstimacion->setEnabled(false);
             ui->pushButton_REstimacion->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
@@ -590,10 +657,10 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy CalculoRequerimientos(var1,var2,var3);
-            CalculoRequerimientos.InferenciaMamdani();
+            InferenciaFuzzy Calculo(var1,var2,var3);
+            Calculo.InferenciaMamdani();
 
-            ResultadosFactores[8] = CalculoRequerimientos.GetResultadoFinal();
+            ResultadosFactores[8] = Calculo.GetResultadoFinal();
 
             ui->pushButton_RHerramientas->setEnabled(false);
             ui->pushButton_RHerramientas->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
@@ -612,10 +679,10 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy CalculoRequerimientos(var1,var2,var3);
-            CalculoRequerimientos.InferenciaMamdani();
+            InferenciaFuzzy Calculo(var1,var2,var3);
+            Calculo.InferenciaMamdani();
 
-            ResultadosFactores[9] = CalculoRequerimientos.GetResultadoFinal();
+            ResultadosFactores[9] = Calculo.GetResultadoFinal();
 
             ui->pushButton_Riesgos->setEnabled(false);
             ui->pushButton_Riesgos->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
@@ -634,10 +701,10 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy CalculoRequerimientos(var1,var2,var3);
-            CalculoRequerimientos.InferenciaMamdani();
+            InferenciaFuzzy Calculo(var1,var2,var3);
+            Calculo.InferenciaMamdani();
 
-            ResultadosFactores[10] = CalculoRequerimientos.GetResultadoFinal();
+            ResultadosFactores[10] = Calculo.GetResultadoFinal();
 
             ui->pushButton_ROrganizacional->setEnabled(false);
             ui->pushButton_ROrganizacional->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
@@ -656,10 +723,10 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy CalculoRequerimientos(var1,var2,var3);
-            CalculoRequerimientos.InferenciaMamdani();
+            InferenciaFuzzy Calculo(var1,var2,var3);
+            Calculo.InferenciaMamdani();
 
-            ResultadosFactores[11] = CalculoRequerimientos.GetResultadoFinal();
+            ResultadosFactores[11] = Calculo.GetResultadoFinal();
 
             ui->pushButton_RPersonal->setEnabled(false);
             ui->pushButton_RPersonal->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
@@ -678,10 +745,10 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy CalculoRequerimientos(var1,var2,var3);
-            CalculoRequerimientos.InferenciaMamdani();
+            InferenciaFuzzy Calculo(var1,var2,var3);
+            Calculo.InferenciaMamdani();
 
-            ResultadosFactores[12] = CalculoRequerimientos.GetResultadoFinal();
+            ResultadosFactores[12] = Calculo.GetResultadoFinal();
 
             ui->pushButton_RRequerimiento->setEnabled(false);
             ui->pushButton_RRequerimiento->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
@@ -700,10 +767,10 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy CalculoRequerimientos(var1,var2,var3);
-            CalculoRequerimientos.InferenciaMamdani();
+            InferenciaFuzzy Calculo(var1,var2,var3);
+            Calculo.InferenciaMamdani();
 
-            ResultadosFactores[13] = CalculoRequerimientos.GetResultadoFinal();
+            ResultadosFactores[13] = Calculo.GetResultadoFinal();
 
             ui->pushButton_RTecnologia->setEnabled(false);
             ui->pushButton_RTecnologia->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
@@ -722,10 +789,10 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy CalculoModeloSolucion(var1,var2,var3);
-            CalculoModeloSolucion.InferenciaMamdani();
+            InferenciaFuzzy Calculo(var1,var2,var3);
+            Calculo.InferenciaMamdani();
 
-            ResultadosFactores[14] = CalculoModeloSolucion.GetResultadoFinal();
+            ResultadosFactores[14] = Calculo.GetResultadoFinal();
 
             ui->pushButton_Temporizacion->setEnabled(false);
             ui->pushButton_Temporizacion->setStyleSheet("background-color:lightgreen;border-style: outset;border-width: 6px;border-color: gray;");
