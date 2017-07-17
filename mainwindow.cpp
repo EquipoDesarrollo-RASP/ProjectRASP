@@ -422,8 +422,7 @@ void MainWindow::on_pushButton_CalcularRiesgo_clicked()
     ResultadoFinal = ResultadoFinal/cant;
     QString ResultadoRiesgo;
 
-    if(ResultadoFinal >= 100){
-        ResultadoFinal = 100;
+    if(ResultadoFinal == 100){
         ResultadoRiesgo.setNum(ResultadoFinal);
         ResultadoRiesgo.resize(3);
     }else{
@@ -553,7 +552,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy Calculo(var1,var2,var3);
+            InferenciaFuzzy Calculo(var1,var2,var3,"Documentacion");
             Calculo.InferenciaMamdani();
 
             ResultadosFactores[0] = Calculo.GetResultadoFinal();
@@ -576,7 +575,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy Calculo(var1,var2,var3);
+            InferenciaFuzzy Calculo(var1,var2,var3,"Desarrollo");
             Calculo.InferenciaMamdani();
 
             ResultadosFactores[1] = Calculo.GetResultadoFinal();
@@ -599,7 +598,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy Calculo(var1,var2,var3);
+            InferenciaFuzzy Calculo(var1,var2,var3,"Documentacion");
             Calculo.InferenciaMamdani();
 
             ResultadosFactores[2] = Calculo.GetResultadoFinal();
@@ -622,7 +621,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy Calculo(var1,var2,var3);
+            InferenciaFuzzy Calculo(var1,var2,var3,"Documentacion");
             Calculo.InferenciaMamdani();
 
             ResultadosFactores[3] = Calculo.GetResultadoFinal();
@@ -645,7 +644,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy Calculo(var1,var2,var3);
+            InferenciaFuzzy Calculo(var1,var2,var3,"Documentacion");
             Calculo.InferenciaMamdani();
 
             ResultadosFactores[4] = Calculo.GetResultadoFinal();
@@ -668,7 +667,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy Calculo(var1,var2,var3);
+            InferenciaFuzzy Calculo(var1,var2,var3,"Documentacion");
             Calculo.InferenciaMamdani();
 
             ResultadosFactores[5] = Calculo.GetResultadoFinal();
@@ -691,7 +690,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy Calculo(var1,var2,var3);
+            InferenciaFuzzy Calculo(var1,var2,var3,"Documentacion");
             Calculo.InferenciaMamdani();
 
             ResultadosFactores[6] = Calculo.GetResultadoFinal();
@@ -714,7 +713,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy Calculo(var1,var2,var3);
+            InferenciaFuzzy Calculo(var1,var2,var3,"Riesgos");
             Calculo.InferenciaMamdani();
 
             ResultadosFactores[7] = Calculo.GetResultadoFinal();
@@ -737,7 +736,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy Calculo(var1,var2,var3);
+            InferenciaFuzzy Calculo(var1,var2,var3,"Riesgos");
             Calculo.InferenciaMamdani();
 
             ResultadosFactores[8] = Calculo.GetResultadoFinal();
@@ -760,7 +759,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy Calculo(var1,var2,var3);
+            InferenciaFuzzy Calculo(var1,var2,var3,"Documentacion");
             Calculo.InferenciaMamdani();
 
             ResultadosFactores[9] = Calculo.GetResultadoFinal();
@@ -783,7 +782,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy Calculo(var1,var2,var3);
+            InferenciaFuzzy Calculo(var1,var2,var3,"Riesgos");
             Calculo.InferenciaMamdani();
 
             ResultadosFactores[10] = Calculo.GetResultadoFinal();
@@ -806,7 +805,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy Calculo(var1,var2,var3);
+            InferenciaFuzzy Calculo(var1,var2,var3,"Riesgos");
             Calculo.InferenciaMamdani();
 
             ResultadosFactores[11] = Calculo.GetResultadoFinal();
@@ -829,7 +828,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy Calculo(var1,var2,var3);
+            InferenciaFuzzy Calculo(var1,var2,var3,"Riesgos");
             Calculo.InferenciaMamdani();
 
             ResultadosFactores[12] = Calculo.GetResultadoFinal();
@@ -852,7 +851,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy Calculo(var1,var2,var3);
+            InferenciaFuzzy Calculo(var1,var2,var3,"Riesgos");
             Calculo.InferenciaMamdani();
 
             ResultadosFactores[13] = Calculo.GetResultadoFinal();
@@ -875,7 +874,7 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             var2 = ui->horizontalSlider_Respuesta_2->value();
             var3 = ui->horizontalSlider_Respuesta_3->value();
 
-            InferenciaFuzzy Calculo(var1,var2,var3);
+            InferenciaFuzzy Calculo(var1,var2,var3,"Documentacion");
             Calculo.InferenciaMamdani();
 
             ResultadosFactores[14] = Calculo.GetResultadoFinal();

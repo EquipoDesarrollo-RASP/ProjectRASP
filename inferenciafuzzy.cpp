@@ -10,10 +10,11 @@ InferenciaFuzzy::InferenciaFuzzy()
     ResultadoFinal = 0;
 }
 
-InferenciaFuzzy::InferenciaFuzzy(double PrimerValor, double SegundoValor, double TercerValor){
+InferenciaFuzzy::InferenciaFuzzy(double PrimerValor, double SegundoValor, double TercerValor, string cat){
     var1 = PrimerValor;
     var2 = SegundoValor;
     var3 = TercerValor;
+    categoria = cat;
 }
 
 void InferenciaFuzzy::InferenciaMamdani(){
@@ -21,12 +22,15 @@ void InferenciaFuzzy::InferenciaMamdani(){
         ConjuntoDifuso Retraso(var1);
         ConjuntoDifuso Documentacion(var2);
         ConjuntoDifuso Importancia(var3);
+        ConjuntoDifuso Desarrollo(var1);
+        ConjuntoDifuso Planificacion(var2);
+        ConjuntoDifuso Procesos(var3);
 
         // Declaracion de valores linguisticos de sus respectivas variables linguisticas
         // Para la Variable RETRASO
-        double Poco_retraso = Retraso.FuncionL(10,20);
-        double Algo_retraso = Retraso.Triangular(15,50,85);
-        double Mucho_retraso = Retraso.Gamma(80,90);
+        double Poco_retraso = Retraso.FuncionL(10,50);
+        double Algo_retraso = Retraso.Triangular(10,50,90);
+        double Mucho_retraso = Retraso.Gamma(50,90);
 
         // Para la variable DOCUMENTACION
         double Nada_documentacion = Documentacion.FuncionL(0,10);
@@ -35,13 +39,29 @@ void InferenciaFuzzy::InferenciaMamdani(){
         double Buena_documentacion = Documentacion.Gamma(90,100);
 
         // Para la variable IMPORTANCIA
-        double Poco_importante = Importancia.FuncionL(10,40);
-        double Algo_importante = Importancia.Triangular(30,50,70);
-        double Muy_importante = Importancia.Gamma(60,90);
+        double Poco_importante = Importancia.FuncionL(10,50);
+        double Algo_importante = Importancia.Triangular(10,50,90);
+        double Muy_importante = Importancia.Gamma(50,90);
+
+        // Para la variable DESARROLLO
+        double No_desarrollo = Desarrollo.FuncionL(10,25);
+        double Poco_desarrollo = Desarrollo.Triangular(10,25,50);
+        double Algo_desarrollo = Desarrollo.Triangular(25,50,75);
+        double Si_desarrollo = Desarrollo.Gamma(75,90);
+
+        // Para la variable PLANIFICACION
+        double No_planificacion = Planificacion.FuncionL(10,50);
+        double MasMenos_planificacion = Planificacion.Triangular(10,50,90);
+        double Si_planificacion = Planificacion.Gamma(50,90);
+
+        // Para la variable PROCESOS
+        double Poco_proceso = Procesos.FuncionL(10,50);
+        double Algo_proceso = Procesos.Triangular(10,50,90);
+        double Mucho_proceso = Procesos.Gamma(50,90);
 
         //REGLAS DIFUSAS
         FuzzyOperator operador;
-        ConjuntoDifuso Riesgos[23];
+        ConjuntoDifuso Riesgos[59];
         double umbral = 0.2;
 
         //Regla 1
@@ -205,13 +225,275 @@ void InferenciaFuzzy::InferenciaMamdani(){
             Riesgos[22].PreCalculoDividendo(0,10);
         }
 
+        //Regla 24  ****** DESARROLLO ********
+        if(operador.FuzzyAND(No_desarrollo,operador.FuzzyAND(No_planificacion,Poco_proceso)) >= umbral){
+            Riesgos[23].SetValor(operador.FuzzyAND(No_desarrollo,operador.FuzzyAND(No_planificacion,Poco_proceso)));
+            Riesgos[23].PreCalculoDivisor(90,100);
+            Riesgos[23].PreCalculoDividendo(90,100);
+        }
+
+        //Regla 25
+        if(operador.FuzzyAND(No_desarrollo,operador.FuzzyAND(No_planificacion,Algo_proceso)) >= umbral){
+            Riesgos[24].SetValor(operador.FuzzyAND(No_desarrollo,operador.FuzzyAND(No_planificacion,Algo_proceso)));
+            Riesgos[24].PreCalculoDivisor(90,100);
+            Riesgos[24].PreCalculoDividendo(90,100);
+        }
+
+        //Regla 26
+        if(operador.FuzzyAND(No_desarrollo,operador.FuzzyAND(No_planificacion,Mucho_proceso)) >= umbral){
+            Riesgos[25].SetValor(operador.FuzzyAND(No_desarrollo,operador.FuzzyAND(No_planificacion,Mucho_proceso)));
+            Riesgos[25].PreCalculoDivisor(90,100);
+            Riesgos[25].PreCalculoDividendo(90,100);
+        }
+
+        //Regla 27
+        if(operador.FuzzyAND(No_desarrollo,operador.FuzzyAND(MasMenos_planificacion,Poco_proceso)) >= umbral){
+            Riesgos[26].SetValor(operador.FuzzyAND(No_desarrollo,operador.FuzzyAND(MasMenos_planificacion,Poco_proceso)));
+            Riesgos[26].PreCalculoDivisor(90,100);
+            Riesgos[26].PreCalculoDividendo(90,100);
+        }
+
+        //Regla 28
+        if(operador.FuzzyAND(No_desarrollo,operador.FuzzyAND(MasMenos_planificacion,Algo_proceso)) >= umbral){
+            Riesgos[27].SetValor(operador.FuzzyAND(No_desarrollo,operador.FuzzyAND(MasMenos_planificacion,Algo_proceso)));
+            Riesgos[27].PreCalculoDivisor(70,80);
+            Riesgos[27].PreCalculoDividendo(70,80);
+        }
+
+        //Regla 29
+        if(operador.FuzzyAND(No_desarrollo,operador.FuzzyAND(MasMenos_planificacion,Mucho_proceso)) >= umbral){
+            Riesgos[28].SetValor(operador.FuzzyAND(No_desarrollo,operador.FuzzyAND(MasMenos_planificacion,Mucho_proceso)));
+            Riesgos[28].PreCalculoDivisor(70,80);
+            Riesgos[28].PreCalculoDividendo(70,80);
+        }
+
+        //Regla 30
+        if(operador.FuzzyAND(No_desarrollo,operador.FuzzyAND(Si_planificacion,Poco_proceso)) >= umbral){
+            Riesgos[29].SetValor(operador.FuzzyAND(No_desarrollo,operador.FuzzyAND(Si_planificacion,Poco_proceso)));
+            Riesgos[29].PreCalculoDivisor(70,80);
+            Riesgos[29].PreCalculoDividendo(70,80);
+        }
+
+        //Regla 31
+        if(operador.FuzzyAND(No_desarrollo,operador.FuzzyAND(Si_planificacion,Algo_proceso)) >= umbral){
+            Riesgos[30].SetValor(operador.FuzzyAND(No_desarrollo,operador.FuzzyAND(Si_planificacion,Algo_proceso)));
+            Riesgos[30].PreCalculoDivisor(70,80);
+            Riesgos[30].PreCalculoDividendo(70,80);
+        }
+
+        //Regla 32
+        if(operador.FuzzyAND(No_desarrollo,operador.FuzzyAND(Si_planificacion,Mucho_proceso)) >= umbral){
+            Riesgos[31].SetValor(operador.FuzzyAND(No_desarrollo,operador.FuzzyAND(Si_planificacion,Mucho_proceso)));
+            Riesgos[31].PreCalculoDivisor(40,60);
+            Riesgos[31].PreCalculoDividendo(40,60);
+        }
+
+        //Regla 33
+        if(operador.FuzzyAND(Poco_desarrollo,operador.FuzzyAND(No_planificacion,Poco_proceso)) >= umbral){
+            Riesgos[32].SetValor(operador.FuzzyAND(Poco_desarrollo,operador.FuzzyAND(No_planificacion,Poco_proceso)));
+            Riesgos[32].PreCalculoDivisor(90,100);
+            Riesgos[32].PreCalculoDividendo(90,100);
+        }
+
+        //Regla 34
+        if(operador.FuzzyAND(Poco_desarrollo,operador.FuzzyAND(No_planificacion,Algo_proceso)) >= umbral){
+            Riesgos[33].SetValor(operador.FuzzyAND(Poco_desarrollo,operador.FuzzyAND(No_planificacion,Algo_proceso)));
+            Riesgos[33].PreCalculoDivisor(90,100);
+            Riesgos[33].PreCalculoDividendo(90,100);
+        }
+
+        //Regla 35
+        if(operador.FuzzyAND(Poco_desarrollo,operador.FuzzyAND(No_planificacion,Mucho_proceso)) >= umbral){
+            Riesgos[34].SetValor(operador.FuzzyAND(Poco_desarrollo,operador.FuzzyAND(No_planificacion,Mucho_proceso)));
+            Riesgos[34].PreCalculoDivisor(90,100);
+            Riesgos[34].PreCalculoDividendo(90,100);
+        }
+
+        //Regla 36
+        if(operador.FuzzyAND(Poco_desarrollo,operador.FuzzyAND(MasMenos_planificacion,Poco_proceso)) >= umbral){
+            Riesgos[35].SetValor(operador.FuzzyAND(Poco_desarrollo,operador.FuzzyAND(MasMenos_planificacion,Poco_proceso)));
+            Riesgos[35].PreCalculoDivisor(70,80);
+            Riesgos[35].PreCalculoDividendo(70,80);
+        }
+
+        //Regla 37
+        if(operador.FuzzyAND(Poco_desarrollo,operador.FuzzyAND(MasMenos_planificacion,Algo_proceso)) >= umbral){
+            Riesgos[36].SetValor(operador.FuzzyAND(Poco_desarrollo,operador.FuzzyAND(MasMenos_planificacion,Algo_proceso)));
+            Riesgos[36].PreCalculoDivisor(70,80);
+            Riesgos[36].PreCalculoDividendo(70,80);
+        }
+
+        //Regla 38
+        if(operador.FuzzyAND(Poco_desarrollo,operador.FuzzyAND(MasMenos_planificacion,Mucho_proceso)) >= umbral){
+            Riesgos[37].SetValor(operador.FuzzyAND(Poco_desarrollo,operador.FuzzyAND(MasMenos_planificacion,Mucho_proceso)));
+            Riesgos[37].PreCalculoDivisor(70,80);
+            Riesgos[37].PreCalculoDividendo(70,80);
+        }
+
+        //Regla 39
+        if(operador.FuzzyAND(Poco_desarrollo,operador.FuzzyAND(Si_planificacion,Poco_proceso)) >= umbral){
+            Riesgos[38].SetValor(operador.FuzzyAND(Poco_desarrollo,operador.FuzzyAND(Si_planificacion,Poco_proceso)));
+            Riesgos[38].PreCalculoDivisor(70,80);
+            Riesgos[38].PreCalculoDividendo(70,80);
+        }
+
+        //Regla 40
+        if(operador.FuzzyAND(Poco_desarrollo,operador.FuzzyAND(Si_planificacion,Algo_proceso)) >= umbral){
+            Riesgos[39].SetValor(operador.FuzzyAND(Poco_desarrollo,operador.FuzzyAND(Si_planificacion,Algo_proceso)));
+            Riesgos[39].PreCalculoDivisor(40,60);
+            Riesgos[39].PreCalculoDividendo(40,60);
+        }
+
+        //Regla 41
+        if(operador.FuzzyAND(Poco_desarrollo,operador.FuzzyAND(Si_planificacion,Mucho_proceso)) >= umbral){
+            Riesgos[40].SetValor(operador.FuzzyAND(Poco_desarrollo,operador.FuzzyAND(Si_planificacion,Mucho_proceso)));
+            Riesgos[40].PreCalculoDivisor(40,60);
+            Riesgos[40].PreCalculoDividendo(40,60);
+        }
+
+        //Regla 42
+        if(operador.FuzzyAND(Algo_desarrollo,operador.FuzzyAND(No_planificacion,Poco_proceso)) >= umbral){
+            Riesgos[41].SetValor(operador.FuzzyAND(Algo_desarrollo,operador.FuzzyAND(No_planificacion,Poco_proceso)));
+            Riesgos[41].PreCalculoDivisor(40,60);
+            Riesgos[41].PreCalculoDividendo(40,60);
+        }
+
+        //Regla 43
+        if(operador.FuzzyAND(Algo_desarrollo,operador.FuzzyAND(No_planificacion,Algo_proceso)) >= umbral){
+            Riesgos[42].SetValor(operador.FuzzyAND(Algo_desarrollo,operador.FuzzyAND(No_planificacion,Algo_proceso)));
+            Riesgos[42].PreCalculoDivisor(40,60);
+            Riesgos[42].PreCalculoDividendo(40,60);
+        }
+
+        //Regla 44
+        if(operador.FuzzyAND(Algo_desarrollo,operador.FuzzyAND(No_planificacion,Mucho_proceso)) >= umbral){
+            Riesgos[43].SetValor(operador.FuzzyAND(Algo_desarrollo,operador.FuzzyAND(No_planificacion,Mucho_proceso)));
+            Riesgos[43].PreCalculoDivisor(40,60);
+            Riesgos[43].PreCalculoDividendo(40,60);
+        }
+
+        //Regla 45
+        if(operador.FuzzyAND(Algo_desarrollo,operador.FuzzyAND(MasMenos_planificacion,Poco_proceso)) >= umbral){
+            Riesgos[44].SetValor(operador.FuzzyAND(Algo_desarrollo,operador.FuzzyAND(MasMenos_planificacion,Poco_proceso)));
+            Riesgos[44].PreCalculoDivisor(40,60);
+            Riesgos[44].PreCalculoDividendo(40,60);
+        }
+
+        //Regla 46
+        if(operador.FuzzyAND(Algo_desarrollo,operador.FuzzyAND(MasMenos_planificacion,Algo_proceso)) >= umbral){
+            Riesgos[45].SetValor(operador.FuzzyAND(Algo_desarrollo,operador.FuzzyAND(MasMenos_planificacion,Algo_proceso)));
+            Riesgos[45].PreCalculoDivisor(40,60);
+            Riesgos[45].PreCalculoDividendo(40,60);
+        }
+
+        //Regla 47
+        if(operador.FuzzyAND(Algo_desarrollo,operador.FuzzyAND(MasMenos_planificacion,Mucho_proceso)) >= umbral){
+            Riesgos[46].SetValor(operador.FuzzyAND(Algo_desarrollo,operador.FuzzyAND(MasMenos_planificacion,Mucho_proceso)));
+            Riesgos[46].PreCalculoDivisor(20,30);
+            Riesgos[46].PreCalculoDividendo(20,30);
+        }
+
+        //Regla 48
+        if(operador.FuzzyAND(Algo_desarrollo,operador.FuzzyAND(Si_planificacion,Poco_proceso)) >= umbral){
+            Riesgos[47].SetValor(operador.FuzzyAND(Algo_desarrollo,operador.FuzzyAND(Si_planificacion,Poco_proceso)));
+            Riesgos[47].PreCalculoDivisor(20,30);
+            Riesgos[47].PreCalculoDividendo(20,30);
+        }
+
+        //Regla 49
+        if(operador.FuzzyAND(Algo_desarrollo,operador.FuzzyAND(Si_planificacion,Algo_proceso)) >= umbral){
+            Riesgos[48].SetValor(operador.FuzzyAND(Algo_desarrollo,operador.FuzzyAND(Si_planificacion,Algo_proceso)));
+            Riesgos[48].PreCalculoDivisor(20,30);
+            Riesgos[48].PreCalculoDividendo(20,30);
+        }
+
+        //Regla 50
+        if(operador.FuzzyAND(Algo_desarrollo,operador.FuzzyAND(Si_planificacion,Mucho_proceso)) >= umbral){
+            Riesgos[49].SetValor(operador.FuzzyAND(Algo_desarrollo,operador.FuzzyAND(Si_planificacion,Mucho_proceso)));
+            Riesgos[49].PreCalculoDivisor(20,30);
+            Riesgos[49].PreCalculoDividendo(20,30);
+        }
+
+        //Regla 51
+        if(operador.FuzzyAND(Si_desarrollo,operador.FuzzyAND(No_planificacion,Poco_proceso)) >= umbral){
+            Riesgos[50].SetValor(operador.FuzzyAND(Si_desarrollo,operador.FuzzyAND(No_planificacion,Poco_proceso)));
+            Riesgos[50].PreCalculoDivisor(20,30);
+            Riesgos[50].PreCalculoDividendo(20,30);
+        }
+
+        //Regla 52
+        if(operador.FuzzyAND(Si_desarrollo,operador.FuzzyAND(No_planificacion,Algo_proceso)) >= umbral){
+            Riesgos[51].SetValor(operador.FuzzyAND(Si_desarrollo,operador.FuzzyAND(No_planificacion,Algo_proceso)));
+            Riesgos[51].PreCalculoDivisor(20,30);
+            Riesgos[51].PreCalculoDividendo(20,30);
+        }
+
+        //Regla 53
+        if(operador.FuzzyAND(Si_desarrollo,operador.FuzzyAND(No_planificacion,Mucho_proceso)) >= umbral){
+            Riesgos[52].SetValor(operador.FuzzyAND(Si_desarrollo,operador.FuzzyAND(No_planificacion,Mucho_proceso)));
+            Riesgos[52].PreCalculoDivisor(20,30);
+            Riesgos[52].PreCalculoDividendo(20,30);
+        }
+
+        //Regla 54
+        if(operador.FuzzyAND(Si_desarrollo,operador.FuzzyAND(MasMenos_planificacion,Poco_proceso)) >= umbral){
+            Riesgos[53].SetValor(operador.FuzzyAND(Si_desarrollo,operador.FuzzyAND(MasMenos_planificacion,Poco_proceso)));
+            Riesgos[53].PreCalculoDivisor(0,10);
+            Riesgos[53].PreCalculoDividendo(0,10);
+        }
+
+        //Regla 55
+        if(operador.FuzzyAND(Si_desarrollo,operador.FuzzyAND(MasMenos_planificacion,Algo_proceso)) >= umbral){
+            Riesgos[54].SetValor(operador.FuzzyAND(Si_desarrollo,operador.FuzzyAND(MasMenos_planificacion,Algo_proceso)));
+            Riesgos[54].PreCalculoDivisor(0,10);
+            Riesgos[54].PreCalculoDividendo(0,10);
+        }
+
+        //Regla 56
+        if(operador.FuzzyAND(Si_desarrollo,operador.FuzzyAND(MasMenos_planificacion,Mucho_proceso)) >= umbral){
+            Riesgos[55].SetValor(operador.FuzzyAND(Si_desarrollo,operador.FuzzyAND(MasMenos_planificacion,Mucho_proceso)));
+            Riesgos[55].PreCalculoDivisor(0,10);
+            Riesgos[55].PreCalculoDividendo(0,10);
+        }
+
+        //Regla 57
+        if(operador.FuzzyAND(Si_desarrollo,operador.FuzzyAND(Si_planificacion,Poco_proceso)) >= umbral){
+            Riesgos[56].SetValor(operador.FuzzyAND(Si_desarrollo,operador.FuzzyAND(Si_planificacion,Poco_proceso)));
+            Riesgos[56].PreCalculoDivisor(0,10);
+            Riesgos[56].PreCalculoDividendo(0,10);
+        }
+
+        //Regla 58
+        if(operador.FuzzyAND(Si_desarrollo,operador.FuzzyAND(Si_planificacion,Algo_proceso)) >= umbral){
+            Riesgos[57].SetValor(operador.FuzzyAND(Si_desarrollo,operador.FuzzyAND(Si_planificacion,Algo_proceso)));
+            Riesgos[57].PreCalculoDivisor(0,10);
+            Riesgos[57].PreCalculoDividendo(0,10);
+        }
+
+        //Regla 59
+        if(operador.FuzzyAND(Si_desarrollo,operador.FuzzyAND(Si_planificacion,Mucho_proceso)) >= umbral){
+            Riesgos[58].SetValor(operador.FuzzyAND(Si_desarrollo,operador.FuzzyAND(Si_planificacion,Mucho_proceso)));
+            Riesgos[58].PreCalculoDivisor(0,10);
+            Riesgos[58].PreCalculoDividendo(0,10);
+        }
+
         //DESFUSIFICACION
         int i;
         double divisor,dividendo;
-        for(i = 0; i < 23 ; i++){
-            divisor += Riesgos[i].GetResultado();
-            dividendo += Riesgos[i].GetValor();
+
+        if(categoria == "Documentacion"){
+            for(i = 0; i < 23 ; i++){
+                divisor += Riesgos[i].GetResultado();
+                dividendo += Riesgos[i].GetValor();
+            }
+        }else if(categoria == "Desarrollo"){
+            for(i = 24; i < 59 ; i++){
+                divisor += Riesgos[i].GetResultado();
+                dividendo += Riesgos[i].GetValor();
+            }
         }
+
+
         ResultadoFinal = (divisor / dividendo)*100;
 
 }
