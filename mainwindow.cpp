@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "inferenciafuzzy.h"
+#include "matriz.h"
 #include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -29,13 +30,16 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButton_Temporizacion->setEnabled(false);
     ui->pushButton_ArbolDeRiesgos->setEnabled(false);
 
-    QFont f("MS Shell Dig 2", 14, QFont::Bold);
-    ui->label->setFont(f);
-
     int i;
     for(i=0;i<15;i++){
         ResultadosFactores[i] = 0;
     }
+
+    MatrizIncidencia.InicializarMatriz();
+
+
+    QFont f("MS Shell Dig 2", 14, QFont::Bold);
+    ui->label->setFont(f);
 
 }
 
@@ -453,6 +457,42 @@ void MainWindow::on_pushButton_CalcularRiesgo_clicked()
 /*--------------------------------PROCESO DE CALCULO DE INCIDENCIAS--------------------------------------*/
 void MainWindow::on_pushButton_ConfirmarIncidencias_clicked()
 {
+    //Se determina cual es la fila de la matriz del factor seleccionado
+    int filaFactor;
+
+    if(ui->pushButton_ModeloSolucion->isEnabled()){
+        filaFactor = 0;
+    }else if(ui->pushButton_Requerimientos->isEnabled()){
+        filaFactor = 1;
+    }else if(ui->pushButton_Disenio->isEnabled()){
+        filaFactor = 2;
+    }else if(ui->pushButton_Pruebas->isEnabled()){
+        filaFactor = 3;
+    }else if(ui->pushButton_PlanGeneral->isEnabled()){
+        filaFactor = 4;
+    }else if(ui->pushButton_Temporizacion->isEnabled()){
+        filaFactor = 5;
+    }else if(ui->pushButton_CicloVida->isEnabled()){
+        filaFactor = 6;
+    }else if(ui->pushButton_Riesgos->isEnabled()){
+        filaFactor = 7;
+    }else if(ui->pushButton_Desarrollo->isEnabled()){
+        filaFactor = 8;
+    }else if(ui->pushButton_RTecnologia->isEnabled()){
+        filaFactor = 9;
+    }else if(ui->pushButton_RPersonal->isEnabled()){
+        filaFactor = 10;
+    }else if(ui->pushButton_ROrganizacional->isEnabled()){
+        filaFactor = 11;
+    }else if(ui->pushButton_RHerramientas->isEnabled()){
+        filaFactor = 12;
+    }else if(ui->pushButton_RRequerimiento->isEnabled()){
+        filaFactor = 13;
+    }else if(ui->pushButton_REstimacion->isEnabled()){
+        filaFactor = 14;
+    }
+
+    //Se extraen los valores de los sliders para las columnas de la matriz
     float valor[15];
 
     valor[0] = ui->horizontalSlider_Incidencia_ModeloSolucion->value();
@@ -476,6 +516,16 @@ void MainWindow::on_pushButton_ConfirmarIncidencias_clicked()
     for(i=0 ; i < 15; i++){
         valor[i] = valor[i] / 10;
     }
+
+    //Se actualizan los valores de la matriz con los nuevos datos.
+    for(int columna = 0; columna < 15 ; columna++){
+        MatrizIncidencia.setValor(filaFactor,columna, valor[columna]);
+    }
+
+    //Se muestra en un cuadro de dialogo el resultado de la matriz --- CON PROPOSITOS DE PRUEBA
+    string resultadoMatriz = MatrizIncidencia.mostrar();
+    QString mensaje = QString::fromStdString(resultadoMatriz);
+    QMessageBox::information(this, "Hola", mensaje);
 
     ui->tabWidget->setTabEnabled(0,false);
     ui->tabWidget->setTabEnabled(1,true);

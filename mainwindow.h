@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "matriz.h"
 
 namespace Ui {
 class MainWindow;
@@ -58,6 +59,7 @@ private:
     double var2;
     double var3;
     double ResultadosFactores[15];
+    matriz MatrizIncidencia = matriz(15,1);
 
 };
 

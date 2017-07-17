@@ -16,7 +16,9 @@ public:
     void setValor(int fila,int columna,float valor);
     string mostrar();
     int getDimension();
+    void setDimension(int temp);
     float getValor(int i,int j);
+    void InicializarMatriz();
 };
 
 #endif // MATRIZ_H
