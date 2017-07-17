@@ -2,7 +2,10 @@
 #include "ui_mainwindow.h"
 #include "inferenciafuzzy.h"
 #include "matriz.h"
+#include "gestor_matrices.h"
 #include <QMessageBox>
+#include <string>
+#include <sstream>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -523,7 +526,9 @@ void MainWindow::on_pushButton_ConfirmarIncidencias_clicked()
     }
 
     //Se muestra en un cuadro de dialogo el resultado de la matriz --- CON PROPOSITOS DE PRUEBA
-    string resultadoMatriz = MatrizIncidencia.mostrar();
+    MatrizR2 = Gestor.siguiente_grado(MatrizIncidencia);
+    EfectoOlvidado = Gestor.efectos_olvidados(MatrizIncidencia,MatrizR2);
+    string resultadoMatriz = EfectoOlvidado.mostrar();
     QString mensaje = QString::fromStdString(resultadoMatriz);
     QMessageBox::information(this, "Hola", mensaje);
 
@@ -882,4 +887,711 @@ void MainWindow::on_pushButton_ConfirmarEstimacion_clicked()
             ui->pushButton_ConfirmarEstimacion->setEnabled(false);
         }
     }
+}
+
+
+void MainWindow::on_horizontalSlider_Incidencia_ModeloSolucion_valueChanged(int value)
+{
+    switch(value){
+        case 0:
+            ui->label_Incidencia_ModeloSolucion->setText("          Ninguna Incidencia");
+            break;
+        case 1:
+            ui->label_Incidencia_ModeloSolucion->setText("Practicamente sin Incidencia");
+            break;
+        case 2:
+            ui->label_Incidencia_ModeloSolucion->setText("         Casi sin Incidencia");
+            break;
+        case 3:
+            ui->label_Incidencia_ModeloSolucion->setText("        Muy débil Incidencia");
+            break;
+        case 4:
+            ui->label_Incidencia_ModeloSolucion->setText("            Débil Incidencia");
+            break;
+        case 5:
+            ui->label_Incidencia_ModeloSolucion->setText("          Mediana Incidencia");
+            break;
+        case 6:
+            ui->label_Incidencia_ModeloSolucion->setText("         Incidencia Sensible");
+            break;
+        case 7:
+            ui->label_Incidencia_ModeloSolucion->setText("         Bastante Incidencia");
+            break;
+        case 8:
+            ui->label_Incidencia_ModeloSolucion->setText("           Fuerte Incidencia");
+            break;
+        case 9:
+            ui->label_Incidencia_ModeloSolucion->setText("       Muy fuerte Incidencia");
+            break;
+        case 10:
+            ui->label_Incidencia_ModeloSolucion->setText("         La mayor Incidencia");
+            break;
+    }
+}
+
+void MainWindow::on_horizontalSlider_Incidencia_Requerimientos_valueChanged(int value)
+{
+    switch(value){
+        case 0:
+            ui->label_Incidencia_Requerimientos->setText("          Ninguna Incidencia");
+            break;
+        case 1:
+            ui->label_Incidencia_Requerimientos->setText("Practicamente sin Incidencia");
+            break;
+        case 2:
+            ui->label_Incidencia_Requerimientos->setText("         Casi sin Incidencia");
+            break;
+        case 3:
+            ui->label_Incidencia_Requerimientos->setText("        Muy débil Incidencia");
+            break;
+        case 4:
+            ui->label_Incidencia_Requerimientos->setText("            Débil Incidencia");
+            break;
+        case 5:
+            ui->label_Incidencia_Requerimientos->setText("          Mediana Incidencia");
+            break;
+        case 6:
+            ui->label_Incidencia_Requerimientos->setText("         Incidencia Sensible");
+            break;
+        case 7:
+            ui->label_Incidencia_Requerimientos->setText("         Bastante Incidencia");
+            break;
+        case 8:
+            ui->label_Incidencia_Requerimientos->setText("           Fuerte Incidencia");
+            break;
+        case 9:
+            ui->label_Incidencia_Requerimientos->setText("       Muy fuerte Incidencia");
+            break;
+        case 10:
+            ui->label_Incidencia_Requerimientos->setText("         La mayor Incidencia");
+            break;
+    }
+}
+
+void MainWindow::on_horizontalSlider_Incidencia_Disenio_valueChanged(int value)
+{
+    switch(value){
+        case 0:
+            ui->label_Incidencia_Disenio->setText("          Ninguna Incidencia");
+            break;
+        case 1:
+            ui->label_Incidencia_Disenio->setText("Practicamente sin Incidencia");
+            break;
+        case 2:
+            ui->label_Incidencia_Disenio->setText("         Casi sin Incidencia");
+            break;
+        case 3:
+            ui->label_Incidencia_Disenio->setText("        Muy débil Incidencia");
+            break;
+        case 4:
+            ui->label_Incidencia_Disenio->setText("            Débil Incidencia");
+            break;
+        case 5:
+            ui->label_Incidencia_Disenio->setText("          Mediana Incidencia");
+            break;
+        case 6:
+            ui->label_Incidencia_Disenio->setText("         Incidencia Sensible");
+            break;
+        case 7:
+            ui->label_Incidencia_Disenio->setText("         Bastante Incidencia");
+            break;
+        case 8:
+            ui->label_Incidencia_Disenio->setText("           Fuerte Incidencia");
+            break;
+        case 9:
+            ui->label_Incidencia_Disenio->setText("       Muy fuerte Incidencia");
+            break;
+        case 10:
+            ui->label_Incidencia_Disenio->setText("         La mayor Incidencia");
+            break;
+    }
+}
+
+void MainWindow::on_horizontalSlider_Incidencia_Pruebas_valueChanged(int value)
+{
+    switch(value){
+        case 0:
+            ui->label_Incidencia_Pruebas->setText("          Ninguna Incidencia");
+            break;
+        case 1:
+            ui->label_Incidencia_Pruebas->setText("Practicamente sin Incidencia");
+            break;
+        case 2:
+            ui->label_Incidencia_Pruebas->setText("         Casi sin Incidencia");
+            break;
+        case 3:
+            ui->label_Incidencia_Pruebas->setText("        Muy débil Incidencia");
+            break;
+        case 4:
+            ui->label_Incidencia_Pruebas->setText("            Débil Incidencia");
+            break;
+        case 5:
+            ui->label_Incidencia_Pruebas->setText("          Mediana Incidencia");
+            break;
+        case 6:
+            ui->label_Incidencia_Pruebas->setText("         Incidencia Sensible");
+            break;
+        case 7:
+            ui->label_Incidencia_Pruebas->setText("         Bastante Incidencia");
+            break;
+        case 8:
+            ui->label_Incidencia_Pruebas->setText("           Fuerte Incidencia");
+            break;
+        case 9:
+            ui->label_Incidencia_Pruebas->setText("       Muy fuerte Incidencia");
+            break;
+        case 10:
+            ui->label_Incidencia_Pruebas->setText("         La mayor Incidencia");
+            break;
+    }
+}
+
+void MainWindow::on_horizontalSlider_Incidencia_PlanGeneral_valueChanged(int value)
+{
+    switch(value){
+        case 0:
+            ui->label_Incidencia_PlanGeneral->setText("          Ninguna Incidencia");
+            break;
+        case 1:
+            ui->label_Incidencia_PlanGeneral->setText("Practicamente sin Incidencia");
+            break;
+        case 2:
+            ui->label_Incidencia_PlanGeneral->setText("         Casi sin Incidencia");
+            break;
+        case 3:
+            ui->label_Incidencia_PlanGeneral->setText("        Muy débil Incidencia");
+            break;
+        case 4:
+            ui->label_Incidencia_PlanGeneral->setText("            Débil Incidencia");
+            break;
+        case 5:
+            ui->label_Incidencia_PlanGeneral->setText("          Mediana Incidencia");
+            break;
+        case 6:
+            ui->label_Incidencia_PlanGeneral->setText("         Incidencia Sensible");
+            break;
+        case 7:
+            ui->label_Incidencia_PlanGeneral->setText("         Bastante Incidencia");
+            break;
+        case 8:
+            ui->label_Incidencia_PlanGeneral->setText("           Fuerte Incidencia");
+            break;
+        case 9:
+            ui->label_Incidencia_PlanGeneral->setText("       Muy fuerte Incidencia");
+            break;
+        case 10:
+            ui->label_Incidencia_PlanGeneral->setText("         La mayor Incidencia");
+            break;
+    }
+}
+
+void MainWindow::on_horizontalSlider_Incidencia_Temporizacion_valueChanged(int value)
+{
+    switch(value){
+        case 0:
+            ui->label_Incidencia_Temporizacion->setText("          Ninguna Incidencia");
+            break;
+        case 1:
+            ui->label_Incidencia_Temporizacion->setText("Practicamente sin Incidencia");
+            break;
+        case 2:
+            ui->label_Incidencia_Temporizacion->setText("         Casi sin Incidencia");
+            break;
+        case 3:
+            ui->label_Incidencia_Temporizacion->setText("        Muy débil Incidencia");
+            break;
+        case 4:
+            ui->label_Incidencia_Temporizacion->setText("            Débil Incidencia");
+            break;
+        case 5:
+            ui->label_Incidencia_Temporizacion->setText("          Mediana Incidencia");
+            break;
+        case 6:
+            ui->label_Incidencia_Temporizacion->setText("         Incidencia Sensible");
+            break;
+        case 7:
+            ui->label_Incidencia_Temporizacion->setText("         Bastante Incidencia");
+            break;
+        case 8:
+            ui->label_Incidencia_Temporizacion->setText("           Fuerte Incidencia");
+            break;
+        case 9:
+            ui->label_Incidencia_Temporizacion->setText("       Muy fuerte Incidencia");
+            break;
+        case 10:
+            ui->label_Incidencia_Temporizacion->setText("         La mayor Incidencia");
+            break;
+    }
+}
+
+void MainWindow::on_horizontalSlider_Incidencia_CicloVida_valueChanged(int value)
+{
+    switch(value){
+        case 0:
+            ui->label_Incidencia_CicloVida->setText("          Ninguna Incidencia");
+            break;
+        case 1:
+            ui->label_Incidencia_CicloVida->setText("Practicamente sin Incidencia");
+            break;
+        case 2:
+            ui->label_Incidencia_CicloVida->setText("         Casi sin Incidencia");
+            break;
+        case 3:
+            ui->label_Incidencia_CicloVida->setText("        Muy débil Incidencia");
+            break;
+        case 4:
+            ui->label_Incidencia_CicloVida->setText("            Débil Incidencia");
+            break;
+        case 5:
+            ui->label_Incidencia_CicloVida->setText("          Mediana Incidencia");
+            break;
+        case 6:
+            ui->label_Incidencia_CicloVida->setText("         Incidencia Sensible");
+            break;
+        case 7:
+            ui->label_Incidencia_CicloVida->setText("         Bastante Incidencia");
+            break;
+        case 8:
+            ui->label_Incidencia_CicloVida->setText("           Fuerte Incidencia");
+            break;
+        case 9:
+            ui->label_Incidencia_CicloVida->setText("       Muy fuerte Incidencia");
+            break;
+        case 10:
+            ui->label_Incidencia_CicloVida->setText("         La mayor Incidencia");
+            break;
+    }
+}
+
+void MainWindow::on_horizontalSlider_Incidencia_Riesgos_valueChanged(int value)
+{
+    switch(value){
+        case 0:
+            ui->label_Incidencia_Riesgos->setText("          Ninguna Incidencia");
+            break;
+        case 1:
+            ui->label_Incidencia_Riesgos->setText("Practicamente sin Incidencia");
+            break;
+        case 2:
+            ui->label_Incidencia_Riesgos->setText("         Casi sin Incidencia");
+            break;
+        case 3:
+            ui->label_Incidencia_Riesgos->setText("        Muy débil Incidencia");
+            break;
+        case 4:
+            ui->label_Incidencia_Riesgos->setText("            Débil Incidencia");
+            break;
+        case 5:
+            ui->label_Incidencia_Riesgos->setText("          Mediana Incidencia");
+            break;
+        case 6:
+            ui->label_Incidencia_Riesgos->setText("         Incidencia Sensible");
+            break;
+        case 7:
+            ui->label_Incidencia_Riesgos->setText("         Bastante Incidencia");
+            break;
+        case 8:
+            ui->label_Incidencia_Riesgos->setText("           Fuerte Incidencia");
+            break;
+        case 9:
+            ui->label_Incidencia_Riesgos->setText("       Muy fuerte Incidencia");
+            break;
+        case 10:
+            ui->label_Incidencia_Riesgos->setText("         La mayor Incidencia");
+            break;
+    }
+}
+
+void MainWindow::on_horizontalSlider_Incidencia_Desarrollo_valueChanged(int value)
+{
+    switch(value){
+        case 0:
+            ui->label_Incidencia_Desarrollo->setText("          Ninguna Incidencia");
+            break;
+        case 1:
+            ui->label_Incidencia_Desarrollo->setText("Practicamente sin Incidencia");
+            break;
+        case 2:
+            ui->label_Incidencia_Desarrollo->setText("         Casi sin Incidencia");
+            break;
+        case 3:
+            ui->label_Incidencia_Desarrollo->setText("        Muy débil Incidencia");
+            break;
+        case 4:
+            ui->label_Incidencia_Desarrollo->setText("            Débil Incidencia");
+            break;
+        case 5:
+            ui->label_Incidencia_Desarrollo->setText("          Mediana Incidencia");
+            break;
+        case 6:
+            ui->label_Incidencia_Desarrollo->setText("         Incidencia Sensible");
+            break;
+        case 7:
+            ui->label_Incidencia_Desarrollo->setText("         Bastante Incidencia");
+            break;
+        case 8:
+            ui->label_Incidencia_Desarrollo->setText("           Fuerte Incidencia");
+            break;
+        case 9:
+            ui->label_Incidencia_Desarrollo->setText("       Muy fuerte Incidencia");
+            break;
+        case 10:
+            ui->label_Incidencia_Desarrollo->setText("         La mayor Incidencia");
+            break;
+    }
+}
+
+void MainWindow::on_horizontalSlider_Incidencia_RTecnologia_valueChanged(int value)
+{
+    switch(value){
+        case 0:
+            ui->label_Incidencia_RTecnologia->setText("          Ninguna Incidencia");
+            break;
+        case 1:
+            ui->label_Incidencia_RTecnologia->setText("Practicamente sin Incidencia");
+            break;
+        case 2:
+            ui->label_Incidencia_RTecnologia->setText("         Casi sin Incidencia");
+            break;
+        case 3:
+            ui->label_Incidencia_RTecnologia->setText("        Muy débil Incidencia");
+            break;
+        case 4:
+            ui->label_Incidencia_RTecnologia->setText("            Débil Incidencia");
+            break;
+        case 5:
+            ui->label_Incidencia_RTecnologia->setText("          Mediana Incidencia");
+            break;
+        case 6:
+            ui->label_Incidencia_RTecnologia->setText("         Incidencia Sensible");
+            break;
+        case 7:
+            ui->label_Incidencia_RTecnologia->setText("         Bastante Incidencia");
+            break;
+        case 8:
+            ui->label_Incidencia_RTecnologia->setText("           Fuerte Incidencia");
+            break;
+        case 9:
+            ui->label_Incidencia_RTecnologia->setText("       Muy fuerte Incidencia");
+            break;
+        case 10:
+            ui->label_Incidencia_RTecnologia->setText("         La mayor Incidencia");
+            break;
+    }
+}
+
+void MainWindow::on_horizontalSlider_Incidencia_RPersonal_valueChanged(int value)
+{
+    switch(value){
+        case 0:
+            ui->label_Incidencia_RPersonal->setText("          Ninguna Incidencia");
+            break;
+        case 1:
+            ui->label_Incidencia_RPersonal->setText("Practicamente sin Incidencia");
+            break;
+        case 2:
+            ui->label_Incidencia_RPersonal->setText("         Casi sin Incidencia");
+            break;
+        case 3:
+            ui->label_Incidencia_RPersonal->setText("        Muy débil Incidencia");
+            break;
+        case 4:
+            ui->label_Incidencia_RPersonal->setText("            Débil Incidencia");
+            break;
+        case 5:
+            ui->label_Incidencia_RPersonal->setText("          Mediana Incidencia");
+            break;
+        case 6:
+            ui->label_Incidencia_RPersonal->setText("         Incidencia Sensible");
+            break;
+        case 7:
+            ui->label_Incidencia_RPersonal->setText("         Bastante Incidencia");
+            break;
+        case 8:
+            ui->label_Incidencia_RPersonal->setText("           Fuerte Incidencia");
+            break;
+        case 9:
+            ui->label_Incidencia_RPersonal->setText("       Muy fuerte Incidencia");
+            break;
+        case 10:
+            ui->label_Incidencia_RPersonal->setText("         La mayor Incidencia");
+            break;
+    }
+}
+
+void MainWindow::on_horizontalSlider_Incidencia_ROrganizacional_valueChanged(int value)
+{
+    switch(value){
+        case 0:
+            ui->label_Incidencia_ROrganizacional->setText("          Ninguna Incidencia");
+            break;
+        case 1:
+            ui->label_Incidencia_ROrganizacional->setText("Practicamente sin Incidencia");
+            break;
+        case 2:
+            ui->label_Incidencia_ROrganizacional->setText("         Casi sin Incidencia");
+            break;
+        case 3:
+            ui->label_Incidencia_ROrganizacional->setText("        Muy débil Incidencia");
+            break;
+        case 4:
+            ui->label_Incidencia_ROrganizacional->setText("            Débil Incidencia");
+            break;
+        case 5:
+            ui->label_Incidencia_ROrganizacional->setText("          Mediana Incidencia");
+            break;
+        case 6:
+            ui->label_Incidencia_ROrganizacional->setText("         Incidencia Sensible");
+            break;
+        case 7:
+            ui->label_Incidencia_ROrganizacional->setText("         Bastante Incidencia");
+            break;
+        case 8:
+            ui->label_Incidencia_ROrganizacional->setText("           Fuerte Incidencia");
+            break;
+        case 9:
+            ui->label_Incidencia_ROrganizacional->setText("       Muy fuerte Incidencia");
+            break;
+        case 10:
+            ui->label_Incidencia_ROrganizacional->setText("         La mayor Incidencia");
+            break;
+    }
+}
+
+void MainWindow::on_horizontalSlider_Incidencia_RHerramientas_valueChanged(int value)
+{
+    switch(value){
+        case 0:
+            ui->label_Incidencia_RHerramientas->setText("          Ninguna Incidencia");
+            break;
+        case 1:
+            ui->label_Incidencia_RHerramientas->setText("Practicamente sin Incidencia");
+            break;
+        case 2:
+            ui->label_Incidencia_RHerramientas->setText("         Casi sin Incidencia");
+            break;
+        case 3:
+            ui->label_Incidencia_RHerramientas->setText("        Muy débil Incidencia");
+            break;
+        case 4:
+            ui->label_Incidencia_RHerramientas->setText("            Débil Incidencia");
+            break;
+        case 5:
+            ui->label_Incidencia_RHerramientas->setText("          Mediana Incidencia");
+            break;
+        case 6:
+            ui->label_Incidencia_RHerramientas->setText("         Incidencia Sensible");
+            break;
+        case 7:
+            ui->label_Incidencia_RHerramientas->setText("         Bastante Incidencia");
+            break;
+        case 8:
+            ui->label_Incidencia_RHerramientas->setText("           Fuerte Incidencia");
+            break;
+        case 9:
+            ui->label_Incidencia_RHerramientas->setText("       Muy fuerte Incidencia");
+            break;
+        case 10:
+            ui->label_Incidencia_RHerramientas->setText("         La mayor Incidencia");
+            break;
+    }
+}
+
+void MainWindow::on_horizontalSlider_Incidencia_RRequerimientos_valueChanged(int value)
+{
+    switch(value){
+        case 0:
+            ui->label_Incidencia_RRequerimientos->setText("          Ninguna Incidencia");
+            break;
+        case 1:
+            ui->label_Incidencia_RRequerimientos->setText("Practicamente sin Incidencia");
+            break;
+        case 2:
+            ui->label_Incidencia_RRequerimientos->setText("         Casi sin Incidencia");
+            break;
+        case 3:
+            ui->label_Incidencia_RRequerimientos->setText("        Muy débil Incidencia");
+            break;
+        case 4:
+            ui->label_Incidencia_RRequerimientos->setText("            Débil Incidencia");
+            break;
+        case 5:
+            ui->label_Incidencia_RRequerimientos->setText("          Mediana Incidencia");
+            break;
+        case 6:
+            ui->label_Incidencia_RRequerimientos->setText("         Incidencia Sensible");
+            break;
+        case 7:
+            ui->label_Incidencia_RRequerimientos->setText("         Bastante Incidencia");
+            break;
+        case 8:
+            ui->label_Incidencia_RRequerimientos->setText("           Fuerte Incidencia");
+            break;
+        case 9:
+            ui->label_Incidencia_RRequerimientos->setText("       Muy fuerte Incidencia");
+            break;
+        case 10:
+            ui->label_Incidencia_RRequerimientos->setText("         La mayor Incidencia");
+            break;
+    }
+}
+
+void MainWindow::on_horizontalSlider_Incidencia_REstimacion_valueChanged(int value)
+{
+    switch(value){
+        case 0:
+            ui->label_Incidencia_REstimacion->setText("          Ninguna Incidencia");
+            break;
+        case 1:
+            ui->label_Incidencia_REstimacion->setText("Practicamente sin Incidencia");
+            break;
+        case 2:
+            ui->label_Incidencia_REstimacion->setText("         Casi sin Incidencia");
+            break;
+        case 3:
+            ui->label_Incidencia_REstimacion->setText("        Muy débil Incidencia");
+            break;
+        case 4:
+            ui->label_Incidencia_REstimacion->setText("            Débil Incidencia");
+            break;
+        case 5:
+            ui->label_Incidencia_REstimacion->setText("          Mediana Incidencia");
+            break;
+        case 6:
+            ui->label_Incidencia_REstimacion->setText("         Incidencia Sensible");
+            break;
+        case 7:
+            ui->label_Incidencia_REstimacion->setText("         Bastante Incidencia");
+            break;
+        case 8:
+            ui->label_Incidencia_REstimacion->setText("           Fuerte Incidencia");
+            break;
+        case 9:
+            ui->label_Incidencia_REstimacion->setText("       Muy fuerte Incidencia");
+            break;
+        case 10:
+            ui->label_Incidencia_REstimacion->setText("         La mayor Incidencia");
+            break;
+    }
+}
+
+void MainWindow::on_pushButton_ArbolDeRiesgos_clicked()
+{
+    float consulta;
+    string NombreFactorFila;
+    string NombreFactorColumna;
+    string relacionFactor;
+
+    for(int fila = 0; fila < 15 ; fila++){
+        for(int columna = 0; columna < 15 ; columna++){
+            consulta = EfectoOlvidado.getValor(fila,columna);
+            if(consulta > 0.8){
+                switch(fila){
+                    case 0:
+                        NombreFactorFila = "Modelo Solución";
+                        break;
+                    case 1:
+                        NombreFactorFila = "Requerimientos";
+                        break;
+                    case 2:
+                        NombreFactorFila = "Diseño";
+                        break;
+                    case 3:
+                        NombreFactorFila = "Plan de Pruebas";
+                        break;
+                    case 4:
+                        NombreFactorFila = "Plan General";
+                        break;
+                    case 5:
+                        NombreFactorFila = "Temporización";
+                        break;
+                    case 6:
+                        NombreFactorFila = "Ciclo de Vida";
+                        break;
+                    case 7:
+                        NombreFactorFila = "Gestión de Riesgos";
+                        break;
+                    case 8:
+                        NombreFactorFila = "Desarrollo";
+                        break;
+                    case 9:
+                        NombreFactorFila = "Riesgos de Tecnología";
+                        break;
+                    case 10:
+                        NombreFactorFila = "Riesgos de Personal";
+                        break;
+                    case 11:
+                        NombreFactorFila = "Riesgo Organizacional";
+                        break;
+                    case 12:
+                        NombreFactorFila = "Riesgos de Herramientas";
+                        break;
+                    case 13:
+                        NombreFactorFila = "Riesgos de Requerimientos";
+                        break;
+                    case 14:
+                        NombreFactorFila = "Riesgo de Estimación";
+                        break;
+                }
+
+
+                switch(columna){
+                    case 0:
+                        NombreFactorColumna = "Modelo Solución";
+                        break;
+                    case 1:
+                        NombreFactorColumna = "Requerimientos";
+                        break;
+                    case 2:
+                        NombreFactorColumna = "Diseño";
+                        break;
+                    case 3:
+                        NombreFactorColumna = "Plan de Pruebas";
+                        break;
+                    case 4:
+                        NombreFactorColumna = "Plan General";
+                        break;
+                    case 5:
+                        NombreFactorColumna = "Temporización";
+                        break;
+                    case 6:
+                        NombreFactorColumna = "Ciclo de Vida";
+                        break;
+                    case 7:
+                        NombreFactorColumna = "Gestión de Riesgos";
+                        break;
+                    case 8:
+                        NombreFactorColumna = "Desarrollo";
+                        break;
+                    case 9:
+                        NombreFactorColumna = "Riesgos de Tecnología";
+                        break;
+                    case 10:
+                        NombreFactorColumna = "Riesgos de Personal";
+                        break;
+                    case 11:
+                        NombreFactorColumna = "Riesgo Organizacional";
+                        break;
+                    case 12:
+                        NombreFactorColumna = "Riesgos de Herramientas";
+                        break;
+                    case 13:
+                        NombreFactorColumna = "Riesgos de Requerimientos";
+                        break;
+                    case 14:
+                        NombreFactorColumna = "Riesgo de Estimación";
+                        break;
+                }
+                std::ostringstream buff;
+                buff<<consulta;
+                relacionFactor += NombreFactorFila+" --("+buff.str()+")--> "+NombreFactorColumna;
+                relacionFactor += " = "+Gestor.buscarIntermediario(MatrizIncidencia,fila,columna);
+                relacionFactor += "\n\n";
+            }
+        }
+    }
+
+    QString mensaje = QString::fromStdString(relacionFactor);
+    QMessageBox::information(this, "Causas del Riesgo", mensaje);
+
 }

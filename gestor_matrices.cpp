@@ -58,3 +58,66 @@ matriz gestor_matrices::efectos_olvidados(matriz M0, matriz M1){
     }
     return aux;
 }
+
+string gestor_matrices::buscarIntermediario(matriz R1, int fila, int columna){
+
+    string FactorIntermediario;
+
+    for(int i = fila; i < 15 ; i++){
+        for(int j = 0; j < 15 ; j++){
+            if(R1.getValor(i,j) >= 0.8){
+                if(R1.getValor(j,columna) >= 0.8){
+                    switch(j){
+                        case 0:
+                            FactorIntermediario = "Modelo Solución";
+                            break;
+                        case 1:
+                            FactorIntermediario = "Requerimientos";
+                            break;
+                        case 2:
+                            FactorIntermediario = "Diseño";
+                            break;
+                        case 3:
+                            FactorIntermediario = "Plan de Pruebas";
+                            break;
+                        case 4:
+                            FactorIntermediario = "Plan General";
+                            break;
+                        case 5:
+                            FactorIntermediario = "Temporización";
+                            break;
+                        case 6:
+                            FactorIntermediario = "Ciclo de Vida";
+                            break;
+                        case 7:
+                            FactorIntermediario = "Gestión de Riesgos";
+                            break;
+                        case 8:
+                            FactorIntermediario = "Desarrollo";
+                            break;
+                        case 9:
+                            FactorIntermediario = "Riesgos de Tecnología";
+                            break;
+                        case 10:
+                            FactorIntermediario = "Riesgos de Personal";
+                            break;
+                        case 11:
+                            FactorIntermediario = "Riesgo Organizacional";
+                            break;
+                        case 12:
+                            FactorIntermediario = "Riesgos de Herramientas";
+                            break;
+                        case 13:
+                            FactorIntermediario = "Riesgos de Requerimientos";
+                            break;
+                        case 14:
+                            FactorIntermediario = "Riesgo de Estimación";
+                            break;
+                    }
+                    return FactorIntermediario;
+                }
+            }
+        }
+    }
+
+}
