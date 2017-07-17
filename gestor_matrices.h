@@ -15,6 +15,7 @@ public:
     matriz Obtener_Matriz(int id);
     float Obtener_Mayor(float menores[],int dimension);
     matriz efectos_olvidados(matriz M0,matriz M1);
+    string buscarIntermediario(matriz R1, int fila, int columna);
 };
 
 #endif // GESTOR_MATRICES_H

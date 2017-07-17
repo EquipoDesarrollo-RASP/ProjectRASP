@@ -29,13 +29,15 @@ SOURCES += main.cpp\
     inferenciafuzzy.cpp \
     fo.cpp \
     gestor_matrices.cpp \
-    matriz.cpp
+    matriz.cpp \
+    gestor_archivos.cpp
 
 HEADERS  += mainwindow.h \
     fp.h \
     inferenciafuzzy.h \
     fo.h \
     gestor_matrices.h \
-    matriz.h
+    matriz.h \
+    gestor_archivos.h
 
 FORMS    += mainwindow.ui
